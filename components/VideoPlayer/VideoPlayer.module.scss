@@ -1,0 +1,14 @@
+.videoPlayer {
+  &__thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 980px) {
+    &__thumb {
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+  }
+}

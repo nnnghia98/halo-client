@@ -1,0 +1,86 @@
+.residentalCollections {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  background-image: url("../../../assets/img/project1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  font-family: "Eleganto Sans";
+  color: #fff;
+
+  &__container {
+    display: flex;
+    height: 60vh;
+    position: relative;
+    max-width: 1260px;
+    padding: 2% 0;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 40px;
+    letter-spacing: 0.2px;
+    line-height: 0.8em;
+  }
+
+  &__des {
+    margin-bottom: 7.82%;
+    line-height: 1.6em;
+    font-size: 17px;
+  }
+
+  &__moreBtn {
+    cursor: pointer;
+    display: flex;
+
+    &__arrow {
+      content: "";
+      align-self: end;
+      margin-left: 10px;
+      width: 42px;
+      height: 8px;
+      display: block;
+      transform: translate3d(0, -50%, 0) rotate(180deg);
+      background: url(../../../assets/svg/arrow.svg) left center no-repeat;
+      background-size: 42px auto;
+      filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(351deg)
+        brightness(103%) contrast(103%);
+    }
+  }
+
+  @media (min-width: 981px) {
+    &__textWrap {
+      width: 35%;
+      margin-right: 5.5%;
+    }
+  }
+
+  @media (max-width: 980px) {
+    &__container {
+      height: auto;
+      width: 100%;
+      padding: 3% 7%;
+    }
+  }
+}
+
+@media (min-width: 981px) {
+  .residentalCollections {
+    padding: 4% 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .residentalCollections {
+    height: auto;
+    min-height: 450px;
+  }
+}

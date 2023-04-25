@@ -1,0 +1,15 @@
+.breadcrumb {
+  font-family: "Montserrat";
+  color: #c3c3c3;
+
+  width: 100%;
+  text-align: left;
+  padding: 10px 65px;
+}
+
+@media (max-width: 980px) {
+  .breadcrumb {
+    padding: 10px 0;
+    font-size: 10px;
+  }
+}
