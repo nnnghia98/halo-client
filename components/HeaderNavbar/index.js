@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
+import publicRequest from "utils/requests";
+
 import HalolightingLogo from "../HalolightingLogo";
 import hamburgerIcon from "../../assets/svg/hamburgerIcon.svg";
 
@@ -9,9 +11,19 @@ import styles from "./HeaderNavbar.module.scss";
 const HeaderNavbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const fetchData = () => {
+    publicRequest
+      .get("/page/main-page")
+      .then((result) => console.log(result))
+      .catch((e) => console.log(e));
+
+    // console.log(publicRequest.get("/page/main-page"));
+  };
+
   const menuItems = (
     <>
       <li>
+        {fetchData()}
         <Link href="/about-us">VỀ CHÚNG TÔI</Link>
       </li>
       <li>
@@ -53,7 +65,7 @@ const HeaderNavbar = () => {
             />
             <ul
               className={`${styles.navbar__items__listWrapper}${
-                isDropdownOpen ? "--active" : ""
+                isDropdownOpen ? "__active" : ""
               }`}
             >
               {menuItems}

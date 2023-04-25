@@ -7,8 +7,10 @@ import styles from "./HalolightingLogo.module.scss";
 const HalolightingLogo = () => (
   <picture className={styles.logo}>
     <Link href="/">
-      <span className={styles.logo__pre}>HALO</span>{" "}
-      <span className={styles.logo__post}>lighting</span>
+      <picture>
+        <span className={styles.logo__pre}>HALO</span>{" "}
+        <span className={styles.logo__post}>lighting</span>
+      </picture>
     </Link>
   </picture>
 );

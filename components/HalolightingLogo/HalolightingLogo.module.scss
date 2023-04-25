@@ -1,0 +1,13 @@
+.logo {
+  font-family: "Eleganto Sans";
+  font-size: 30px;
+
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+
+  &__pre {
+    font-weight: 600;
+  }
+}
