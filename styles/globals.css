@@ -3,7 +3,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Montserrat,
+    Eleganto Sans, sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -13,4 +15,53 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Eleganto Sans";
+  font-weight: 300;
+  src: local("Eleganto Sans"),
+    url(../assets/fonts/ElegantoSans/ElegantoSans-Thin.ttf);
+}
+
+@font-face {
+  font-family: "Eleganto Sans";
+  font-weight: 400;
+  src: local("Eleganto Sans"),
+    url(../assets/fonts/ElegantoSans/ElegantoSans-Light.ttf);
+}
+
+@font-face {
+  font-family: "Eleganto Sans";
+  font-weight: 500;
+  src: local("Eleganto Sans"),
+    url(../assets/fonts/ElegantoSans/ElegantoSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Eleganto Sans";
+  font-weight: 600;
+  src: local("Eleganto Sans"),
+    url(../assets/fonts/ElegantoSans/ElegantoSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Eleganto Sans";
+  font-weight: 700;
+  src: local("Eleganto Sans"),
+    url(../assets/fonts/ElegantoSans/ElegantoSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Eleganto Sans";
+  font-weight: 800;
+  src: local("Eleganto Sans"),
+    url(../assets/fonts/ElegantoSans/ElegantoSans-Black.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url(../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf)
+      format("truetype");
 }
