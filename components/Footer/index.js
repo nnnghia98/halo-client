@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss";
 
 const Footer = () => (
   <div className={styles.footer}>
-    <div className="styles.footer__container">
+    <div className={styles.footer__container}>
       <div className={styles.footer__site}>
         <span className={styles.footer__quote}>Delighting your home</span>
         <ul>

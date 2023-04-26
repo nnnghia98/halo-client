@@ -9,12 +9,8 @@ import hamburgerIcon from "assets/svg/hamburgerIcon.svg";
 
 import styles from "./HeaderNavbar.module.scss";
 
-const HeaderNavbar = (data) => {
+const HeaderNavbar = (props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   const menuItems = (
     <>
@@ -59,9 +55,11 @@ const HeaderNavbar = (data) => {
               onClick={triggerDropdown}
             />
             <ul
-              className={`${styles.navbar__items__listWrapper}${
-                isDropdownOpen ? "__active" : ""
-              }`}
+              className={
+                isDropdownOpen
+                  ? styles.navbar__items__listWrapper__active
+                  : styles.navbar__items__listWrapper
+              }
             >
               {menuItems}
             </ul>
@@ -72,13 +70,13 @@ const HeaderNavbar = (data) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const res = await publicRequest.get("/page/main-page");
     const data = await res.data;
 
     return {
-      props: data,
+      props: { data },
     };
   } catch (e) {
     console.log(e);

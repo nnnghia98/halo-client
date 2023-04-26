@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 
-// import "./styles.scss";
 import styles from "./HalolightingLogo.module.scss";
 
 const HalolightingLogo = () => (
