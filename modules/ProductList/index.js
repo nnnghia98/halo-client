@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import {
-//   Link,
-//   useRouteMatch,
-//   useParams,
-//   Switch,
-//   Route,
-// } from "react-router-dom";
 
 import project1 from "assets/img/project1.jpg";
 
@@ -15,12 +8,12 @@ import styles from "./ProductList.module.scss";
 
 const ProductList = ({ category }) => {
   const [isSelected, setIsSelected] = useState(0);
-  const [groupSelected, setGroupSelected] = useState([
-    { id: 0, name: "HALOLIGHTING" },
-    { id: 1, name: "ASFOUR" },
-    { id: 2, name: "MASIERO" },
-    { id: 3, name: "ARIZZI" },
-  ]);
+  // const [groupSelected, setGroupSelected] = useState([
+  //   { id: 0, name: "HALOLIGHTING" },
+  //   { id: 1, name: "ASFOUR" },
+  //   { id: 2, name: "MASIERO" },
+  //   { id: 3, name: "ARIZZI" },
+  // ]);
 
   const renderGroupFilterBar = () =>
     category.map((c) => (
