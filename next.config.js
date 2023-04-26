@@ -13,7 +13,8 @@ const nextConfig = {
   ) {
     return {
       "/": { page: "/" },
-      "/san-pham": { page: "/products" },
+      "/san-pham": { page: "/product" },
+      "/san-pham/[category]": { page: "/product/[category]" },
     };
   },
 };

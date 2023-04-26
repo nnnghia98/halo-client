@@ -24,7 +24,7 @@ const HeaderNavbar = (props) => {
         <Link href="/collections">BỘ SƯU TẬP</Link>
       </li>
       <li>
-        <Link href="/products">SẢN PHẨM</Link>
+        <Link href="/san-pham">SẢN PHẨM</Link>
       </li>
       <li>
         <Link href="/contact">LIÊN HỆ</Link>
@@ -70,16 +70,17 @@ const HeaderNavbar = (props) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   try {
     const res = await publicRequest.get("/page/main-page");
     const data = await res.data;
 
     return {
-      props: { data },
+      props: data,
     };
   } catch (e) {
     console.log(e);
   }
 };
+
 export default HeaderNavbar;

@@ -1,0 +1,101 @@
+.productList {
+  width: 100%;
+  background-color: #f2f2f3;
+  padding-bottom: 50px;
+
+  &__filterBar,
+  &__brandFilterBar {
+    width: 100%;
+    font-family: "Montserrat";
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+
+    &__item {
+      color: #c3c3c3;
+      cursor: pointer;
+      text-decoration: none;
+
+      &__active {
+        color: #000000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__brandFilterBar {
+    font-size: 12px;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__itemWrap {
+    font-family: "Eleganto Sans";
+    flex: 0 0 30%;
+    margin: auto 10px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__itemName {
+    width: 100%;
+    color: #000000;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  @media (max-width: 980px) {
+    &__filterBar,
+    &__brandFilterBar {
+      flex-wrap: wrap;
+      gap: 0;
+
+      &__item {
+        flex-basis: 49%;
+        margin-bottom: 10px;
+
+        &__active {
+          flex-basis: 50%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &__brandFilterBar {
+      flex-wrap: nowrap;
+      padding: 0 10px;
+    }
+
+    &__list {
+      margin: auto 0 30px;
+    }
+
+    &__itemWrap {
+      flex: 0 0 45%;
+      min-height: 155px;
+      min-width: 45%;
+      height: auto;
+      margin: auto 5px 5px;
+    }
+
+    &__itemName {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+}
