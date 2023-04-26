@@ -11,6 +11,7 @@ const VideoPlayer = () => (
       className={styles.videoPlayer__thumb}
       src={videoPlayerThumb}
       alt="thumbnail"
+      priority
     />
   </div>
 );

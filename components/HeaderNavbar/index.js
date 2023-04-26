@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
+import publicRequest from "utils/requests";
 
 import HalolightingLogo from "../HalolightingLogo";
-import hamburgerIcon from "../../assets/svg/hamburgerIcon.svg";
+import hamburgerIcon from "assets/svg/hamburgerIcon.svg";
 
 import styles from "./HeaderNavbar.module.scss";
 
-const HeaderNavbar = ({ paths }) => {
+const HeaderNavbar = (data) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   const menuItems = (
     <>
@@ -44,7 +51,7 @@ const HeaderNavbar = ({ paths }) => {
             <ul>{menuItems}</ul>
           </div>
           <div className={styles.navbar__items__vertical}>
-            <img
+            <Image
               className={styles.navbar__hamburger}
               src={hamburgerIcon}
               alt="hamburgerIcon"
@@ -65,4 +72,16 @@ const HeaderNavbar = ({ paths }) => {
   );
 };
 
+export const getStaticProps = async () => {
+  try {
+    const res = await publicRequest.get("/page/main-page");
+    const data = await res.data;
+
+    return {
+      props: data,
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
 export default HeaderNavbar;

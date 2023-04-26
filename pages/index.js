@@ -1,6 +1,4 @@
-import Head from "next/head";
-
-import { VideoPlayer } from "components";
+import { VideoPlayer, HeadTitle } from "components";
 import {
   AboutUs,
   BespokeProjects,
@@ -10,10 +8,13 @@ import {
   SpecialProducts,
 } from "modules";
 
+import publicRequest from "utils/requests";
+
 import styles from "./index.module.scss";
 
-const Home = () => (
+const Home = ({ title }) => (
   <div className={styles.home}>
+    <HeadTitle title={title} />
     <VideoPlayer />
     <AboutUs />
     <BespokeProjects />
@@ -23,5 +24,18 @@ const Home = () => (
     <Collaborators />
   </div>
 );
+
+export const getStaticProps = async () => {
+  try {
+    const res = await publicRequest.get("/page/get-page-by-name/home");
+    const data = await res.data;
+
+    return {
+      props: data,
+    };
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export default Home;
