@@ -54,7 +54,7 @@
   }
 
   &__bg {
-    background-image: url("../../../assets/img/project2.jpg");
+    background-image: url("../../assets/img/project2.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -87,7 +87,7 @@
       height: 8px;
       display: block;
       transform: translate3d(0, -50%, 0) rotate(180deg);
-      background: url(../../../assets/svg/arrow.svg) left center no-repeat;
+      background: url(../../assets/svg/arrow.svg) left center no-repeat;
       background-size: 42px auto;
       filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
         brightness(92%) contrast(82%);
@@ -126,7 +126,7 @@
         height: 8px;
         display: block;
         transform: translate3d(0, -50%, 0) rotate(180deg);
-        background: url(../../../assets/svg/arrow.svg) left center no-repeat;
+        background: url(../../assets/svg/arrow.svg) left center no-repeat;
         background-size: 42px auto;
         filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
           brightness(92%) contrast(82%);

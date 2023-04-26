@@ -1,7 +1,6 @@
+import Head from "next/head";
+
 import { VideoPlayer } from "components";
-
-import styles from "./index.module.scss";
-
 import {
   AboutUs,
   BespokeProjects,
@@ -9,7 +8,9 @@ import {
   Projects,
   Collaborators,
   SpecialProducts,
-} from "./modules";
+} from "modules";
+
+import styles from "./index.module.scss";
 
 const Home = () => (
   <div className={styles.home}>

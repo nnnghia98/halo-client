@@ -7,7 +7,7 @@ const publicRequest = axios.create({
   },
 });
 
-// console.log(process.env);
+console.log(process.env);
 publicRequest.interceptors.response.use((response) => {
   return response.data;
 });

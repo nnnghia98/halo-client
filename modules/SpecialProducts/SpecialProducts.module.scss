@@ -1,8 +1,8 @@
-.bespokeProjects {
+.specialProducts {
   width: 100%;
   height: 700px;
   position: relative;
-  background-image: url("../../../assets/img/project1.jpg");
+  background-image: url("../../assets/img/project1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -24,17 +24,17 @@
     text-align: left;
   }
 
-  &__des {
-    margin-bottom: 8.82%;
-    line-height: 1.6em;
-    font-size: 17px;
-  }
-
   h2 {
     font-weight: 500;
-    font-size: 40px;
+    font-size: 33px;
     letter-spacing: 0.2px;
     line-height: 0.8em;
+  }
+
+  &__des {
+    margin-bottom: 7.82%;
+    line-height: 1.6em;
+    font-size: 17px;
   }
 
   &__moreBtn {
@@ -49,7 +49,7 @@
       height: 8px;
       display: block;
       transform: translate3d(0, -50%, 0) rotate(180deg);
-      background: url(../../../assets/svg/arrow.svg) left center no-repeat;
+      background: url(../../assets/svg/arrow.svg) left center no-repeat;
       background-size: 42px auto;
       filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(351deg)
         brightness(103%) contrast(103%);
@@ -73,13 +73,13 @@
 }
 
 @media (min-width: 981px) {
-  .bespokeProjects {
+  .specialProducts {
     padding: 4% 0;
   }
 }
 
 @media (max-width: 980px) {
-  .bespokeProjects {
+  .specialProducts {
     height: auto;
     min-height: 450px;
   }
