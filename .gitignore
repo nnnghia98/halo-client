@@ -20,3 +20,6 @@ yarn-error.log*
 
 # coverage directory used by tools like istanbul
 coverage
+
+# Local Netlify folder
+.netlify
