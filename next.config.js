@@ -10,8 +10,7 @@ const nextConfig = {
   images: {
     loader: 'akamai',
     path: '',
-  },
-  useFileSystemPublicRoutes: false
+  }
 };
 
 module.exports = nextConfig;
