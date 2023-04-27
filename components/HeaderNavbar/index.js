@@ -1,34 +1,27 @@
 import React, { useState, useEffect } from "react";
+import get from "lodash/get";
 import Link from "next/link";
 import Image from "next/image";
 
-import publicRequest from "utils/requests";
+import getConfig from "next/config";
 
 import HalolightingLogo from "../HalolightingLogo";
 import hamburgerIcon from "assets/svg/hamburgerIcon.svg";
 
 import styles from "./HeaderNavbar.module.scss";
 
-const HeaderNavbar = (props) => {
+const HeaderNavbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const config = getConfig();
+  const routes = get(config, "publicRuntimeConfig.routes", []);
 
   const menuItems = (
     <>
-      <li>
-        <Link href="/about-us">VỀ CHÚNG TÔI</Link>
-      </li>
-      <li>
-        <Link href="/cac-du-an">CÁC DỰ ÁN</Link>
-      </li>
-      <li>
-        <Link href="/bo-suu-tap">BỘ SƯU TẬP</Link>
-      </li>
-      <li>
-        <Link href="/san-pham">SẢN PHẨM</Link>
-      </li>
-      <li>
-        <Link href="/contact">LIÊN HỆ</Link>
-      </li>
+      {routes.map((route) => (
+        <li>
+          <Link href={route.slug || "/"}>{route.title.toUpperCase()}</Link>
+        </li>
+      ))}
     </>
   );
 
@@ -42,7 +35,6 @@ const HeaderNavbar = (props) => {
             <HalolightingLogo />
           </span>
         </div>
-        {console.log(props)}
         <div className={styles.navbar__items}>
           <div className={styles.navbar__items__horizontal}>
             <ul>{menuItems}</ul>

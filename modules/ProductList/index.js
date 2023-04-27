@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { PATHS } from "utils/constants";
+
 import project1 from "assets/img/project1.jpg";
 
 import styles from "./ProductList.module.scss";
 
-const ProductList = ({ category }) => {
+const ProductList = ({ categories }) => {
   const [isSelected, setIsSelected] = useState(0);
   // const [groupSelected, setGroupSelected] = useState([
   //   { id: 0, name: "HALOLIGHTING" },
@@ -16,10 +18,10 @@ const ProductList = ({ category }) => {
   // ]);
 
   const renderGroupFilterBar = () =>
-    category.map((c) => (
+    categories.map((c) => (
       <Link
         href={{
-          pathname: "/san-pham/[category]",
+          pathname: PATHS.PRODUCT_CATEGORY,
           query: { category: c.slug },
         }}
         key={c.id}

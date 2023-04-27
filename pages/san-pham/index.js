@@ -3,24 +3,23 @@ import { ProductHeader, ProductList } from "modules";
 
 import publicRequest from "utils/requests";
 
-const Products = ({ product, category }) => (
+const Products = ({ page, categories }) => (
   <>
-    <HeadTitle title={product.title} />
-    <ProductHeader header={product.title} />
-    <ProductList category={category} />
+    <HeadTitle title={page.title} />
+    <ProductHeader header={page.title} />
+    <ProductList categories={categories} />
   </>
 );
 
 export const getStaticProps = async () => {
   try {
-    const res = await publicRequest.get("/page/get-page-by-name/product");
-    const res1 = await publicRequest.get("/category/main-category");
-
-    const data = await res.data;
-    const data1 = await res1.data;
+    const [page, categories] = await Promise.all([
+      publicRequest.get("/page/get-page-by-name/product"),
+      publicRequest.get("/category/main-category"),
+    ]);
 
     return {
-      props: { product: data, category: data1 },
+      props: { page: page.data, categories: categories.data },
     };
   } catch (e) {
     console.log(e);
