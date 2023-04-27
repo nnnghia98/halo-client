@@ -10,6 +10,7 @@ import CollectionHeader from "./CollectionHeader";
 import CollectionGallery from "./CollectionGallery";
 import ProjectHeader from "./ProjectHeader";
 import ProjectGallery from "./ProjectGallery";
+import Layout from "./Layout";
 
 export {
   AboutUs,
@@ -24,4 +25,5 @@ export {
   CollectionGallery,
   ProjectHeader,
   ProjectGallery,
+  Layout,
 };

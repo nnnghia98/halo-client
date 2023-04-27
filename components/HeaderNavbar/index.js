@@ -42,6 +42,7 @@ const HeaderNavbar = (props) => {
             <HalolightingLogo />
           </span>
         </div>
+        {console.log(props)}
         <div className={styles.navbar__items}>
           <div className={styles.navbar__items__horizontal}>
             <ul>{menuItems}</ul>

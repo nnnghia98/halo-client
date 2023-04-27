@@ -1,4 +1,3 @@
-import React from 'react';
 import { HeadTitle } from "components";
 import { ProductHeader, ProductList } from "modules";
 
@@ -14,13 +13,14 @@ const Products = ({ product, category }) => (
 
 export const getStaticProps = async () => {
   try {
-    const [product, category] = await Promise.all([
-      publicRequest.get("/page/get-page-by-name/product"),
-      publicRequest.get("/category/main-category")
-    ])
+    const res = await publicRequest.get("/page/get-page-by-name/product");
+    const res1 = await publicRequest.get("/category/main-category");
+
+    const data = await res.data;
+    const data1 = await res1.data;
 
     return {
-      props: { product: product.data, category: category.data },
+      props: { product: data, category: data1 },
     };
   } catch (e) {
     console.log(e);
