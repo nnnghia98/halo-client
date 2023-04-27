@@ -1,4 +1,5 @@
-import { HeadTitle } from "components/";
+import React from 'react';
+import { HeadTitle } from "components";
 import { ProductHeader, ProductList } from "modules";
 
 import publicRequest from "utils/requests";
@@ -13,14 +14,13 @@ const Products = ({ product, category }) => (
 
 export const getStaticProps = async () => {
   try {
-    const res = await publicRequest.get("/page/get-page-by-name/product");
-    const res1 = await publicRequest.get("/category/main-category");
-
-    const data = await res.data;
-    const data1 = await res1.data;
+    const [product, category] = await Promise.all([
+      publicRequest.get("/page/get-page-by-name/product"),
+      publicRequest.get("/category/main-category")
+    ])
 
     return {
-      props: { product: data, category: data1 },
+      props: { product: product.data, category: category.data },
     };
   } catch (e) {
     console.log(e);
