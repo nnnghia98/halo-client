@@ -9,6 +9,10 @@ app.prepare()
 .then(() => {
   const server = express()
 
+  server.get('/', (req, res) => {
+    return app.render(req, res, 'index');
+  })
+
   server.get('/san-pham', (req, res) => {
     return app.render(req, res, '/product')
   })
@@ -19,6 +23,11 @@ app.prepare()
 
   server.get('*', (req, res) => {
     return handle(req, res)
+  })
+
+  server.listen(9999, (err) => {
+    if (err) throw err
+    console.log('> Ready on http://localhost:3000')
   })
 })
 .catch((ex) => {
