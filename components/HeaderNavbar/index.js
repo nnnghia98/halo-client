@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import get from "lodash/get";
 import Link from "next/link";
 import Image from "next/image";
-
 import getConfig from "next/config";
+
+import { DEFAULT_ROUTES } from "utils/constants";
 
 import HalolightingLogo from "../HalolightingLogo";
 import hamburgerIcon from "assets/svg/hamburgerIcon.svg";
@@ -13,7 +14,7 @@ import styles from "./HeaderNavbar.module.scss";
 const HeaderNavbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const config = getConfig();
-  const routes = get(config, "publicRuntimeConfig.routes", []);
+  const routes = get(config, "publicRuntimeConfig.routes", DEFAULT_ROUTES);
 
   const menuItems = (
     <>
