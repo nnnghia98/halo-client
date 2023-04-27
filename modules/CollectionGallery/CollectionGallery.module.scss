@@ -1,0 +1,92 @@
+.gallery {
+  width: 100%;
+  background-color: #f2f2f3;
+  padding-bottom: 50px;
+
+  &__filterBar {
+    width: 100%;
+    font-family: "Montserrat";
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    &__item {
+      color: #c3c3c3;
+
+      &__active {
+        color: #000000;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__itemWrap {
+    position: relative;
+    font-family: "Eleganto Sans";
+    max-width: 830px;
+    flex: 0 0 43%;
+    min-width: 468px;
+    width: 100%;
+    margin: auto 10px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+    cursor: pointer;
+
+    img {
+      transition: transform 0s;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__itemName {
+    position: absolute;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 980px) {
+    &__filterBar {
+      flex-wrap: wrap;
+      gap: 0;
+
+      &__item {
+        flex-basis: 49%;
+        margin-bottom: 10px;
+
+        &__active {
+          flex-basis: 50%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &__list {
+      margin: auto 30px 30px;
+    }
+
+    &__itemWrap {
+      flex: 1 1 51%;
+      min-height: 230px;
+      min-width: auto;
+      height: auto;
+      margin: auto 0px 5px;
+    }
+  }
+}

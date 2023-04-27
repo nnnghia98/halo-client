@@ -6,6 +6,10 @@ import Collaborators from "./Collaborators";
 import SpecialProducts from "./SpecialProducts";
 import ProductHeader from "./ProductHeader";
 import ProductList from "./ProductList";
+import CollectionHeader from "./CollectionHeader";
+import CollectionGallery from "./CollectionGallery";
+import ProjectHeader from "./ProjectHeader";
+import ProjectGallery from "./ProjectGallery";
 
 export {
   AboutUs,
@@ -16,4 +20,8 @@ export {
   SpecialProducts,
   ProductHeader,
   ProductList,
+  CollectionHeader,
+  CollectionGallery,
+  ProjectHeader,
+  ProjectGallery,
 };

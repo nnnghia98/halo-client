@@ -18,10 +18,10 @@ const HeaderNavbar = (props) => {
         <Link href="/about-us">VỀ CHÚNG TÔI</Link>
       </li>
       <li>
-        <Link href="/projects">CÁC DỰ ÁN</Link>
+        <Link href="/cac-du-an">CÁC DỰ ÁN</Link>
       </li>
       <li>
-        <Link href="/collections">BỘ SƯU TẬP</Link>
+        <Link href="/bo-suu-tap">BỘ SƯU TẬP</Link>
       </li>
       <li>
         <Link href="/san-pham">SẢN PHẨM</Link>

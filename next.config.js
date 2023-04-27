@@ -15,6 +15,8 @@ const nextConfig = {
       "/": { page: "/" },
       "/san-pham": { page: "/product" },
       "/san-pham/[category]": { page: "/product/[category]" },
+      "/bo-suu-tap": { page: "/collection" },
+      "/cac-du-an": { page: "/project" },
     };
   },
 };
