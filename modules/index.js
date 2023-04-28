@@ -18,6 +18,12 @@ import ProductDetailImageCarousel from "./ProductDetailImageCarousel";
 import ProductDetailMobileContent from "./ProductDetailMobileContent";
 import WebContent from "./WebContent";
 import Layout from "./Layout";
+import ProjectDetailBanner from "./ProjectDetailBanner";
+import ProjectDetailImage from "./ProjectDetailImage";
+import ProjectDetailDetail from "./ProjectDetailDetail";
+import ProjectDetailStory from "./ProjectDetailStory";
+import ProjectDetailCarousel from "./ProjectDetailCarousel";
+import ProjectDetailContact from "./ProjectDetailContact";
 
 export {
   AboutUs,
@@ -40,4 +46,10 @@ export {
   ProductDetailMobileContent,
   WebContent,
   Layout,
+  ProjectDetailBanner,
+  ProjectDetailImage,
+  ProjectDetailDetail,
+  ProjectDetailStory,
+  ProjectDetailCarousel,
+  ProjectDetailContact,
 };

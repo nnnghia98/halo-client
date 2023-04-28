@@ -1,0 +1,37 @@
+.detail {
+  font-family: "Eleganto Sans";
+  padding: 170px 150px;
+  padding-right: 250px;
+  text-align: left;
+
+  &__location {
+    font-size: 25px;
+    margin-bottom: 50px;
+  }
+
+  &__introduction {
+    font-size: 55px;
+    word-spacing: 5px;
+
+    &__yellow {
+      color: #f2c480;
+    }
+  }
+
+  @media (max-width: 980px) {
+    &__location {
+      display: none;
+    }
+
+    &__introduction {
+      font-size: 28px;
+      word-spacing: 3px;
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .detail {
+    padding: 25px;
+  }
+}

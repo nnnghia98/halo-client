@@ -1,39 +1,11 @@
 import React from "react";
-import { useRouter } from "next/router";
 
-import { HeadTitle, Breadcrumb } from "components";
-import {
-  ProductDetailRecommend,
-  ProductDetailSubscribe,
-  ProductDetailMobileContent,
-  WebContent,
-} from "modules";
-import { PRODUCT_DETAIL_PATHS, WIDTH_BREAKPOINT } from "utils/constants";
-import { useWindowDimensions } from "utils/window";
 import publicRequest from "utils/requests";
 
 import styles from "./index.module.scss";
 
 const ProductDetail = (props) => {
-  const { width } = useWindowDimensions();
-
-  return (
-    <div className={styles.productDetail}>
-      <HeadTitle title={props.title} />
-      <Breadcrumb paths={PRODUCT_DETAIL_PATHS} />
-
-      <div className={styles.productDetail__content}>
-        {width < WIDTH_BREAKPOINT ? (
-          <ProductDetailMobileContent />
-        ) : (
-          <WebContent />
-        )}
-      </div>
-
-      <ProductDetailRecommend />
-      <ProductDetailSubscribe />
-    </div>
-  );
+  return <div>{console.log(props)}</div>;
 };
 
 export const getStaticPaths = async () => {

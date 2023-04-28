@@ -7,7 +7,7 @@ import styles from "./ProductDetailImages.module.scss";
 
 const Images = () => (
   <div className={styles.images}>
-    <div className={styles.images__main}>
+    <div className={styles.images__mainImage}>
       <Image priority src={thumb2} alt="" />
     </div>
     <div className={styles.images__slideshow}>
