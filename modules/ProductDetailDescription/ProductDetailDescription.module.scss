@@ -1,0 +1,57 @@
+.description {
+  width: 100%;
+  font-family: "Montserrat";
+  text-align: left;
+  font-weight: 500;
+  padding-right: 50px;
+
+  &__name {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  &__productCode {
+    margin-bottom: 25px;
+  }
+
+  &__buttonWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  &__orderContactButton {
+    padding: 13px 60px;
+    border: 2px solid lightgrey;
+    background-color: #ffffff;
+  }
+
+  &__additionalRequire {
+    margin-bottom: 20px;
+  }
+
+  &__aboutUsDetail,
+  &__productDescription {
+    font-size: 18px;
+  }
+
+  &__break {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 25px;
+  }
+
+  &__sectionTitle {
+    margin-bottom: 20px;
+  }
+
+  &__productDescription {
+    margin-bottom: 25px;
+  }
+
+  ul {
+    padding: 0 15px;
+  }
+}

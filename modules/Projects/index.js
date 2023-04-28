@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+import { Breadcrumb } from "components";
+import WebContent from "../WebContent";
+import { ProductRecommend, Subscribe, MobileContent } from "modules";
 
 import styles from "./Projects.module.scss";
 

@@ -10,6 +10,13 @@ import CollectionHeader from "./CollectionHeader";
 import CollectionGallery from "./CollectionGallery";
 import ProjectHeader from "./ProjectHeader";
 import ProjectGallery from "./ProjectGallery";
+import ProductDetailDescription from "./ProductDetailDescription";
+import ProductDetailImages from "./ProductDetailImages";
+import ProductDetailRecommend from "./ProductDetailRecommend";
+import ProductDetailSubscribe from "./ProductDetailSubscribe";
+import ProductDetailImageCarousel from "./ProductDetailImageCarousel";
+import ProductDetailMobileContent from "./ProductDetailMobileContent";
+import WebContent from "./WebContent";
 import Layout from "./Layout";
 
 export {
@@ -25,5 +32,12 @@ export {
   CollectionGallery,
   ProjectHeader,
   ProjectGallery,
+  ProductDetailDescription,
+  ProductDetailImages,
+  ProductDetailRecommend,
+  ProductDetailSubscribe,
+  ProductDetailImageCarousel,
+  ProductDetailMobileContent,
+  WebContent,
   Layout,
 };

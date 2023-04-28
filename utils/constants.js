@@ -24,3 +24,7 @@ export const DEFAULT_ROUTES = [
     title: "LIÊN HỆ",
   },
 ];
+
+export const PRODUCT_DETAIL_PATHS = ["SẢN PHẨM", "HALOLIGHTING", "ĐÈN CHÙM"];
+
+export const WIDTH_BREAKPOINT = 980;
