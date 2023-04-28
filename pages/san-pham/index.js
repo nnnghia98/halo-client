@@ -1,3 +1,5 @@
+import getConfig from "next/config";
+
 import { HeadTitle } from "components";
 import { ProductHeader, ProductList } from "modules";
 

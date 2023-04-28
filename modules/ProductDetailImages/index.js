@@ -8,13 +8,13 @@ import styles from "./ProductDetailImages.module.scss";
 const Images = () => (
   <div className={styles.images}>
     <div className={styles.images__main}>
-      <Image src={thumb2} alt="" />
+      <Image priority src={thumb2} alt="" />
     </div>
     <div className={styles.images__slideshow}>
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
+      <Image priority src={thumb2} alt="" />
+      <Image priority src={thumb2} alt="" />
+      <Image priority src={thumb2} alt="" />
+      <Image priority src={thumb2} alt="" />
     </div>
   </div>
 );

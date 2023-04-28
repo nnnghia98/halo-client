@@ -15,21 +15,19 @@ const nextConfig = {
 
 module.exports = async (phase, { defaultConfig }) => {
   try {
-    // const res = await fetch(
-    //   `${process.env.NEXT_PUBLIC_BACKEND_API}page/main-page`
-    // );
-    // const data = await res.json();
-
-    const [routesRes, settingRes] = Promise.all([
+    const [routesRes, settingRes] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}page/main-page`),
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}setting/fetch-all`),
     ]);
 
+    const routes = await routesRes.json();
+    const settings = await settingRes.json();
+
     return {
       defaultConfig,
       publicRuntimeConfig: {
-        routes: routesRes.json().data,
-        setting: settingRes.json().data,
+        routes: routes.data,
+        setting: settings.data,
       },
       ...nextConfig,
     };

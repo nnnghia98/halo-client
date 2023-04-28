@@ -10,7 +10,7 @@ const Description = () => (
     <div className={styles.description__productCode}>
       MÃ SẢN PHẨM: HALOEU-01
     </div>
-    <div className={styles.description__buttonCrapper}>
+    <div className={styles.description__buttonWrapper}>
       <div className={styles.description__orderContactButton}>
         LIÊN HỆ ĐẶT HÀNG
       </div>

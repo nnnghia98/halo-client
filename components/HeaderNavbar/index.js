@@ -19,7 +19,7 @@ const HeaderNavbar = () => {
   const menuItems = (
     <>
       {routes.map((route) => (
-        <li>
+        <li key={route.title}>
           <Link href={route.slug || "/"}>{route.title.toUpperCase()}</Link>
         </li>
       ))}
