@@ -63,7 +63,7 @@ const ProductList = ({ categories }) => {
           {renderBrandFilterBar()}
         </div> */}
         <div className={styles.productList__list}>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -76,7 +76,7 @@ const ProductList = ({ categories }) => {
               </div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -89,7 +89,7 @@ const ProductList = ({ categories }) => {
               </div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -100,7 +100,7 @@ const ProductList = ({ categories }) => {
               <div className={styles.productList__itemName}>ABSTRACTION</div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -113,7 +113,7 @@ const ProductList = ({ categories }) => {
               </div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -124,7 +124,7 @@ const ProductList = ({ categories }) => {
               <div className={styles.productList__itemName}>JEWELRY BOX</div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -135,7 +135,7 @@ const ProductList = ({ categories }) => {
               <div className={styles.productList__itemName}>STARRY SKY</div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -146,7 +146,7 @@ const ProductList = ({ categories }) => {
               <div className={styles.productList__itemName}>AUTUMN LEAVES</div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -159,7 +159,7 @@ const ProductList = ({ categories }) => {
               </div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
@@ -170,7 +170,7 @@ const ProductList = ({ categories }) => {
               <div className={styles.productList__itemName}>KALEIDOSCOPES</div>
             </div>
           </Link>
-          <Link href="/products/detail">
+          <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
               <Image
                 className={styles.productsList__itemImage}
