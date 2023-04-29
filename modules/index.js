@@ -24,6 +24,7 @@ import ProjectDetailDetail from "./ProjectDetailDetail";
 import ProjectDetailStory from "./ProjectDetailStory";
 import ProjectDetailCarousel from "./ProjectDetailCarousel";
 import ProjectDetailContact from "./ProjectDetailContact";
+import ProductCategoryFilterBar from "./ProductCategoryFilterBar";
 
 export {
   AboutUs,
@@ -52,4 +53,5 @@ export {
   ProjectDetailStory,
   ProjectDetailCarousel,
   ProjectDetailContact,
+  ProductCategoryFilterBar,
 };

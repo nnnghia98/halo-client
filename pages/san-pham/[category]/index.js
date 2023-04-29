@@ -1,11 +1,26 @@
 import React from "react";
 
+import { HeadTitle } from "components";
+import { ProductCategoryFilterBar, ProductList } from "modules";
+
 import publicRequest from "utils/requests";
 
 import styles from "./index.module.scss";
 
 const ProductDetail = (props) => {
-  return <div>{console.log(props)}</div>;
+  return (
+    <div className={styles.productDetail}>
+      <HeadTitle title={props.title} />
+      <div className={styles.productDetail__content}>
+        <div className={styles.productDetail__filterBarWrapper}>
+          <ProductCategoryFilterBar />
+        </div>
+        <div className={styles.productDetail__productListWrapper}>
+          <ProductList />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export const getStaticPaths = async () => {
@@ -30,7 +45,7 @@ export const getStaticProps = async ({ params }) => {
   const { category } = params;
 
   try {
-    const res = await publicRequest.get(`d/${category}`);
+    const res = await publicRequest.get(`/category/d/${category}`);
     const categoryData = await res.data;
 
     return { props: categoryData };

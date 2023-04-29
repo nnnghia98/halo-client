@@ -27,7 +27,7 @@ module.exports = async (phase, { defaultConfig }) => {
       defaultConfig,
       publicRuntimeConfig: {
         routes: routes.data,
-        setting: settings.data,
+        settings: settings.data,
       },
       ...nextConfig,
     };
