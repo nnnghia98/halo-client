@@ -11,23 +11,26 @@
     justify-content: center;
     gap: 30px;
 
-    img {
-      border: 4px solid black;
-      max-width: 18%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-    }
-
-    @media (max-width: 980px) {
-      img {
-        max-width: 38%;
-      }
-    }
-
     @media (max-width: 980px) {
       h2 {
         font-size: 20px;
       }
+    }
+  }
+
+  &__imgWrapper {
+    border: 4px solid black;
+    max-width: 18%;
+    aspect-ratio: 1/1;
+    // object-fit: fill;
+    position: relative;
+    display: flex;
+    // align-items: center;
+  }
+
+  @media (max-width: 980px) {
+    &__imgWrapper {
+      max-width: 38%;
     }
   }
 }

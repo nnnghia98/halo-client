@@ -11,10 +11,18 @@ const Images = () => (
       <Image priority src={thumb2} alt="" />
     </div>
     <div className={styles.images__slideshow}>
-      <Image priority src={thumb2} alt="" />
-      <Image priority src={thumb2} alt="" />
-      <Image priority src={thumb2} alt="" />
-      <Image priority src={thumb2} alt="" />
+      <div className={styles.images__smImage}>
+        <Image priority src={thumb2} alt="" />
+      </div>
+      <div className={styles.images__smImage}>
+        <Image priority src={thumb2} alt="" />
+      </div>
+      <div className={styles.images__smImage}>
+        <Image priority src={thumb2} alt="" />
+      </div>
+      <div className={styles.images__smImage}>
+        <Image priority src={thumb2} alt="" />
+      </div>
     </div>
   </div>
 );

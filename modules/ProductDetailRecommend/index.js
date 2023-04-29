@@ -13,17 +13,29 @@ const ProductRecommend = () => {
 
   const renderWebLayout = () => (
     <>
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
+      <div className={styles.productRecommend__imgWrapper}>
+        <Image src={thumb2} alt="" />
+      </div>
+      <div className={styles.productRecommend__imgWrapper}>
+        <Image src={thumb2} alt="" />
+      </div>
+      <div className={styles.productRecommend__imgWrapper}>
+        <Image src={thumb2} alt="" />
+      </div>
+      <div className={styles.productRecommend__imgWrapper}>
+        <Image src={thumb2} alt="" />
+      </div>
     </>
   );
 
   const renderMobileLayout = () => (
     <>
-      <Image src={thumb2} alt="" />
-      <Image src={thumb2} alt="" />
+      <div className={styles.productRecommend__imgWrapper}>
+        <Image src={thumb2} alt="" />
+      </div>
+      <div className={styles.productRecommend__imgWrapper}>
+        <Image src={thumb2} alt="" />
+      </div>
     </>
   );
 
