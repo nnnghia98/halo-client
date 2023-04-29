@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import get from "lodash/get";
 import Link from "next/link";
 import Image from "next/image";
@@ -20,7 +20,9 @@ const HeaderNavbar = () => {
     <>
       {routes.map((route) => (
         <li key={route.title}>
-          <Link href={`/${route.slug ?? '/'}`}>{route.title.toUpperCase()}</Link>
+          <Link href={`/${route.slug ?? "/"}`}>
+            {route.title.toUpperCase()}
+          </Link>
         </li>
       ))}
     </>
@@ -73,7 +75,9 @@ export const getStaticProps = async () => {
       props: data,
     };
   } catch (e) {
-    console.log(e);
+    return {
+      props: {},
+    };
   }
 };
 

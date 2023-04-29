@@ -39,29 +39,14 @@ const ProductList = ({ categories }) => {
       </Link>
     ));
 
-  // const renderBrandFilterBar = () =>
-  //   groupSelected.map((item) => (
-  //     <div
-  //       key={item.id}
-  //       className={
-  //         0 === item.id
-  //           ? styles.productList__filterBar__item__active
-  //           : styles.productList__filterBar__item
-  //       }
-  //     >
-  //       {item.name}
-  //     </div>
-  //   ));
-
   return (
     <>
       <div className={styles.productList}>
-        <div className={styles.productList__filterBar}>
-          {renderGroupFilterBar()}
-        </div>
-        {/* <div className={styles.productList__brandFilterBar}>
-          {renderBrandFilterBar()}
-        </div> */}
+        {categories && (
+          <div className={styles.productList__filterBar}>
+            {renderGroupFilterBar()}
+          </div>
+        )}
         <div className={styles.productList__list}>
           <Link href="/san-pham/detail">
             <div className={styles.productList__itemWrap}>
@@ -183,10 +168,6 @@ const ProductList = ({ categories }) => {
           </Link>
         </div>
       </div>
-      {/*
-      <Switch>
-        <Route path={`${path}/:groupCode`} component={ProductList} />
-      </Switch> */}
     </>
   );
 };

@@ -24,7 +24,9 @@ export const getStaticProps = async () => {
       props: { page: page.data, categories: categories.data },
     };
   } catch (e) {
-    console.log(e);
+    return {
+      props: { page: {}, categories: {} },
+    };
   }
 };
 

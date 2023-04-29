@@ -34,7 +34,9 @@ export const getStaticProps = async () => {
       props: data,
     };
   } catch (e) {
-    console.log(e);
+    return {
+      props: {},
+    };
   }
 };
 
