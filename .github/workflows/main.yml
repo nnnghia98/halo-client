@@ -10,11 +10,6 @@ jobs:
     environment: main
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - name: Install packages
-        run: yarn
       - name: Executing remote command
         uses: appleboy/ssh-action@master
         with:
