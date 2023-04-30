@@ -1,0 +1,26 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    margin: 0;
+    margin-right: 7px;
+    cursor: pointer;
+
+    &:checked {
+      background-color: #a6a6a6;
+    }
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+}

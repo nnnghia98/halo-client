@@ -1,3 +1,63 @@
 .filterPanel {
   width: 100%;
+
+  &__panel {
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    cursor: pointer;
+
+    h5 {
+      padding: 0;
+      margin: 0;
+      font-weight: 600;
+    }
+  }
+
+  &__body,
+  &__body__active {
+    font-size: 15px;
+    padding: 0 10px;
+    border-top: 1px solid #bfbfbf;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__body {
+    max-height: 0;
+    transition: max-height 0.4s ease-in;
+    overflow: hidden;
+  }
+
+  &__body__active {
+    max-height: 222px;
+    transition: max-height 0.4s ease-in;
+    overflow: hidden;
+  }
+
+  &__categoryName {
+    font-weight: 500;
+    margin-top: 15px;
+  }
+
+  &__selectWrapper {
+    margin: 7px 15px;
+  }
+
+  &__checkboxWrapper {
+    margin: 10px 0;
+  }
 }
