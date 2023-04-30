@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import arrow from "assets/svg/arrow.svg";
 
@@ -16,7 +17,7 @@ const Contact = () => (
     <div className={styles.contact__sendButtonWrapper}>
       GỬI
       <span className={styles.contact__rightArrow}>
-        <img src={arrow} alt="right-arrow" />
+        <Image src={arrow} alt="right-arrow" />
       </span>
     </div>
   </div>

@@ -5,12 +5,12 @@
   text-align: left;
 
   &__location {
-    font-size: 25px;
+    font-size: 17px;
     margin-bottom: 50px;
   }
 
   &__introduction {
-    font-size: 55px;
+    font-size: 35px;
     word-spacing: 5px;
 
     &__yellow {
@@ -20,11 +20,14 @@
 
   @media (max-width: 980px) {
     &__location {
-      display: none;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 20px;
     }
 
     &__introduction {
-      font-size: 28px;
+      font-weight: 500;
+      font-size: 20px;
       word-spacing: 3px;
     }
   }
@@ -32,6 +35,6 @@
 
 @media (max-width: 980px) {
   .detail {
-    padding: 25px;
+    padding: 40px 30px;
   }
 }

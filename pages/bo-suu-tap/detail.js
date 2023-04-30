@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 import { VideoPlayer } from "components";
 import {
@@ -28,10 +29,12 @@ const CollectionDetail = () => {
       <VideoPlayer />
 
       <div className={styles.collectionDetail__imgDetail}>
-        <div className={styles.collectionDetail__imgDetail__imageWrapper}>
+        <div className={styles.collectionDetail__img}>
           <ProjectDetailImage />
         </div>
-        <ProjectDetailDetail />
+        <div className={styles.collectionDetail__videoPlayer}>
+          <ProjectDetailDetail />
+        </div>
       </div>
 
       <div className={styles.collectionDetail__storyCarousel}>
@@ -54,14 +57,14 @@ const CollectionDetail = () => {
 
       <div className={styles.collectionDetail__carousel}>
         <div className={styles.collectionDetail__carousel__image}>
-          <img src={thumb2} alt="collection detail" />
+          <Image src={thumb2} alt="collection detail" />
         </div>
         <div className={styles.collectionDetail__carousel__navigation}>
           <div className={styles.collectionDetail__carousel__leftArrow}>
-            <img src={arrow} alt="leftArrow" />
+            <Image src={arrow} alt="leftArrow" />
           </div>
           <div className={styles.collectionDetail__carousel__rightArrow}>
-            <img src={arrow} alt="rightArrow" />
+            <Image src={arrow} alt="rightArrow" />
           </div>
         </div>
       </div>

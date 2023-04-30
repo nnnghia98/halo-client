@@ -1,17 +1,14 @@
 import React from "react";
+import Image from "next/image";
 
 import collectionDetailImage from "assets/img/collectionDetailImage.png";
 
 import styles from "./ProjectDetailImage.module.scss";
 
-const Image = ({ width }) => (
+const ProjectDetailImage = () => (
   <div className={styles.image}>
-    <img
-      src={collectionDetailImage}
-      width={width || "auto"}
-      alt="collection detail"
-    />
+    <Image src={collectionDetailImage} alt="collection detail" />
   </div>
 );
 
-export default Image;
+export default ProjectDetailImage;
