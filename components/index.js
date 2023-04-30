@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Breadcrumb from "./Breadcrumb";
 import VideoPlayer from "./VideoPlayer";
 import HeadTitle from "./HeadTitle";
+import Checkbox from "./Checkbox";
 
 export {
   HeaderNavbar,
@@ -12,4 +13,5 @@ export {
   Breadcrumb,
   VideoPlayer,
   HeadTitle,
+  Checkbox,
 };

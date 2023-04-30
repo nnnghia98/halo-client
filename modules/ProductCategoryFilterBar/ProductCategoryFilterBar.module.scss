@@ -1,0 +1,16 @@
+.filterSideBar {
+  width: 100%;
+  font-family: "Montserrat";
+  padding: 0 20px;
+
+  h4 {
+    font-weight: 300;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  &__wrapper {
+    border: 1px solid #bfbfbf;
+    background-color: #ffffff;
+  }
+}

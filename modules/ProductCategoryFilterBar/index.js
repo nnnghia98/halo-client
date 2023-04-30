@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import styles from "./index.module.scss";
+import FilterPanel from "../ProductCategoryFilterPanel";
+
+import styles from "./ProductCategoryFilterBar.module.scss";
 
 const ProductCategoryFilterBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -12,30 +14,18 @@ const ProductCategoryFilterBar = () => {
       <h4>FILTER</h4>
 
       <div className={styles.filterSideBar__wrapper}>
-        <div className={styles.filterSideBar__panel}>
-          <div className={styles.filterSideBar__top} onClick={triggerDropdown}>
-            <h5>CATEGORIES</h5>
-            <div>{isDropdownOpen ? "-" : "+"}</div>
-          </div>
-          <div
-            className={
-              isDropdownOpen
-                ? styles.filterSideBar__body__active
-                : styles.filterSideBar__body
-            }
-          >
-            <div className={styles.filterSideBar__categoryName}>
-              Thương hiệu
-            </div>
-            <ul>
-              <li>New</li>
-              <li>Test</li>
-              <li>Temp</li>
-              <li>Quick</li>
-              <li>Thin</li>
-            </ul>
-          </div>
-        </div>
+        <FilterPanel
+          title="CATEGORIES"
+          type="categories"
+          isDefaultOpen={true}
+        />
+        <FilterPanel title="MATERIAL" type="material" />
+        <FilterPanel title="COLOR" type="color" />
+        <FilterPanel title="DIMENSIONS" type="dimensions" />
+        <FilterPanel title="SHIPPING TIME" type="shipping_time" />
+        <FilterPanel title="PRICE" type="price" />
+        <FilterPanel title="ARTISAN" type="artisan" />
+        <FilterPanel title="DESIGNER" type="designer" />
       </div>
     </div>
   );
