@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { useRouter } from "next/router";
 
 import { Checkbox } from "components";
 
@@ -19,7 +20,11 @@ const MyCheckBoxList = [
   },
 ];
 
+const query = {};
+
 const FilterPanel = (props) => {
+  const router = useRouter();
+
   const { title, type, isDefaultOpen } = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(isDefaultOpen || false);
   const [data, setData] = useState(
@@ -31,6 +36,21 @@ const FilterPanel = (props) => {
   }, [data]);
 
   const triggerDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  const handleOnChange = (item) => {
+    setData(data.map((d) => (d.order === item.order ? item : d)));
+
+    if (query[props.type]) {
+      query[props.type].push(item.name);
+    } else {
+      query[props.type] = [item.name];
+    }
+    // save query from url to checked items
+    router.push(
+      "http://localhost:8000/san-pham/thuong-hieu?" +
+        new URLSearchParams(query).toString()
+    );
+  };
 
   const renderBody = () => {
     if (type === "categories") {
@@ -52,12 +72,7 @@ const FilterPanel = (props) => {
       <ul>
         {data.map((obj, index) => (
           <li key={index} className={styles.filterPanel__checkboxWrapper}>
-            <Checkbox
-              obj={obj}
-              onChange={(item) => {
-                setData(data.map((d) => (d.order === item.order ? item : d)));
-              }}
-            />
+            <Checkbox obj={obj} onChange={(item) => handleOnChange(item)} />
           </li>
         ))}
       </ul>
