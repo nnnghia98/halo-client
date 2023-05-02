@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 import FilterPanel from "../ProductCategoryFilterPanel";
 
 import styles from "./ProductCategoryFilterBar.module.scss";
+import getConfig from "next/config";
+import get from "lodash/get";
 
-const ProductCategoryFilterBar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const triggerDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+const ProductCategoryFilterBar = ({category}) => {
+  const config = getConfig();
+  const productAttributes = get(config, "publicRuntimeConfig.productAttributes", []);
 
   return (
     <div className={styles.filterSideBar}>
@@ -18,14 +19,19 @@ const ProductCategoryFilterBar = () => {
           title="CATEGORIES"
           type="categories"
           isDefaultOpen={true}
+          category={category}
         />
-        <FilterPanel title="MATERIAL" type="material" />
-        <FilterPanel title="COLOR" type="color" />
-        <FilterPanel title="DIMENSIONS" type="dimensions" />
-        <FilterPanel title="SHIPPING TIME" type="shipping_time" />
-        <FilterPanel title="PRICE" type="price" />
-        <FilterPanel title="ARTISAN" type="artisan" />
-        <FilterPanel title="DESIGNER" type="designer" />
+        {
+          productAttributes.length > 0 && productAttributes.map(productAttribute => (
+            <FilterPanel
+              key={productAttribute.name}
+              title={productAttribute.title}
+              type={productAttribute.slug}
+              category={category}
+              productAttributeValues={productAttribute.product_attribute_values}
+            />
+          ))
+        }
       </div>
     </div>
   );

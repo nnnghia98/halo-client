@@ -66,19 +66,4 @@ const HeaderNavbar = () => {
   );
 };
 
-export const getStaticProps = async () => {
-  try {
-    const res = await publicRequest.get("/page/main-page");
-    const data = await res.data;
-
-    return {
-      props: data,
-    };
-  } catch (e) {
-    return {
-      props: {},
-    };
-  }
-};
-
 export default HeaderNavbar;

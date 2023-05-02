@@ -1,54 +1,52 @@
-import React, { useState, useMemo } from "react";
-import { useRouter } from "next/router";
-
-import { Checkbox } from "components";
-
+import React, {useEffect, useState} from "react";
+import {useRouter} from "next/router";
+import {Checkbox} from "components";
 import styles from "./ProductCategoryFilterPanel.module.scss";
+import {PRODUCT_PAGE} from "utils/constants";
+import isEmpty from "lodash/isEmpty";
+import map from "lodash/map";
 
-const MyCheckBoxList = [
-  {
-    order: 0,
-    name: "Red",
-  },
-  {
-    order: 1,
-    name: "Blue",
-  },
-  {
-    order: 2,
-    name: "Green",
-  },
-];
-
-const query = {};
 
 const FilterPanel = (props) => {
   const router = useRouter();
+  const query = React.useMemo(() => {
+    return Object.assign({}, router.query);
+  }, []);
 
-  const { title, type, isDefaultOpen } = props;
+  const {title, type, isDefaultOpen, productAttributeValues} = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(isDefaultOpen || false);
-  const [data, setData] = useState(
-    MyCheckBoxList.sort((a, b) => a.order - b.order)
-  );
 
-  const isVerified = useMemo(() => {
-    return data.every((d) => d.checked);
-  }, [data]);
+  useEffect(() => {
+    if (!isEmpty(productAttributeValues)) {
+      map(productAttributeValues, item => {
+        if (Object.values(router.query).join(",").includes(item.name)) {
+          setIsDropdownOpen(true);
+        }
+      })
+    }
+  }, [productAttributeValues]);
 
   const triggerDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   const handleOnChange = (item) => {
-    setData(data.map((d) => (d.order === item.order ? item : d)));
-
     if (query[props.type]) {
-      query[props.type].push(item.name);
+      if (query[props.type].includes(item.name)) {
+        const arr = query[props.type].split(",");
+        const index = arr.findIndex(v => v === item.name);
+        arr.splice(index, 1);
+        query[props.type] = arr.join(",");
+      } else {
+        const arr = query[props.type].split(",");
+        arr.push(item.name);
+        query[props.type] = arr.join(",");
+      }
     } else {
-      query[props.type] = [item.name];
+      query[props.type] = item.name;
     }
-    // save query from url to checked items
-    router.push(
-      "http://localhost:8000/san-pham/thuong-hieu?" +
-        new URLSearchParams(query).toString()
+    const {category} = props;
+    router.replace(
+      `/${PRODUCT_PAGE.slug}/${category.slug}?` +
+      new URLSearchParams(query).toString()
     );
   };
 
@@ -70,9 +68,13 @@ const FilterPanel = (props) => {
 
     return (
       <ul>
-        {data.map((obj, index) => (
-          <li key={index} className={styles.filterPanel__checkboxWrapper}>
-            <Checkbox obj={obj} onChange={(item) => handleOnChange(item)} />
+        {productAttributeValues.map((obj) => (
+          <li key={obj.name} className={styles.filterPanel__checkboxWrapper}>
+            <Checkbox
+              checked={Object.values(router.query).join(",").includes(obj.name)}
+              obj={obj}
+              onChange={() => handleOnChange(obj)}
+            />
           </li>
         ))}
       </ul>
@@ -92,7 +94,7 @@ const FilterPanel = (props) => {
             : styles.filterPanel__body
         }
       >
-        {renderBody(type, data)}
+        {renderBody(type)}
       </div>
     </div>
   );

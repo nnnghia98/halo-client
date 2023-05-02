@@ -25,6 +25,11 @@ export const DEFAULT_ROUTES = [
   },
 ];
 
+export const PRODUCT_PAGE = {
+  title: 'Sản phẩm',
+  slug: 'san-pham'
+}
+
 export const PRODUCT_DETAIL_PATHS = ["SẢN PHẨM", "HALOLIGHTING", "ĐÈN CHÙM"];
 
 export const WIDTH_BREAKPOINT = 980;
