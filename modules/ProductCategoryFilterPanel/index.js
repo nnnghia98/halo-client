@@ -5,13 +5,12 @@ import styles from "./ProductCategoryFilterPanel.module.scss";
 import {PRODUCT_PAGE} from "utils/constants";
 import isEmpty from "lodash/isEmpty";
 import map from "lodash/map";
+import cloneDeep from "lodash/cloneDeep";
 
 
 const FilterPanel = (props) => {
   const router = useRouter();
-  const query = React.useMemo(() => {
-    return Object.assign({}, router.query);
-  }, []);
+  const query = React.useMemo(() => cloneDeep(router.query), []);
 
   const {title, type, isDefaultOpen, productAttributeValues} = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(isDefaultOpen || false);
