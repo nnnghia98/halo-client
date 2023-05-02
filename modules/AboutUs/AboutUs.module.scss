@@ -1,148 +1,184 @@
+// .aboutUs {
+//   width: 100%;
+//   height: 700px;
+//   position: relative;
+//   background-position: 50%;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-color: #f2f2f3;
+//   font-family: "Eleganto Sans";
+
+//   &__container {
+//     display: flex;
+//     flex-direction: column;
+//     max-width: 1260px;
+//     text-align: left;
+//     height: 60vh;
+//     direction: ltr;
+//     width: 75%;
+//     margin: auto;
+
+//     &__brandWrapper {
+//       direction: ltr;
+//       animation-timing-function: linear;
+//       animation-duration: 0.2s;
+//     }
+
+//     @media (min-width: 981px) {
+//       h2 {
+//         width: 40%;
+//         margin-top: 0;
+//         margin-right: 5.5%;
+//         margin-bottom: 7.493%;
+//         font-size: 40px;
+//         letter-spacing: 0.2px;
+//         line-height: 1.25em;
+//       }
+//     }
+
+//     @media (max-width: 980px) {
+//       h2 {
+//         margin-bottom: 30.493%;
+//         font-size: 25px;
+//       }
+//     }
+//   }
+
+//   &__bgWrap {
+//     overflow: hidden;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//   }
+
+//   &__bg {
+//     background-image: url("../../assets/img/project2.jpg");
+//     background-repeat: no-repeat;
+//     background-position: top;
+//     background-size: cover;
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: block;
+//   }
+
+//   &__brandName {
+//     font-weight: 500;
+//   }
+
+//   &__brandBusiness {
+//     font-weight: 500;
+//     color: #299390;
+//   }
+
+//   &__moreBtn {
+//     cursor: pointer;
+//     display: flex;
+//     transition: all 300ms ease 0ms;
+
+//     &__arrow {
+//       content: "";
+//       margin-left: 10px;
+//       width: 42px;
+//       height: 8px;
+//       display: block;
+//       transform: translate3d(0, -50%, 0) rotate(180deg);
+//       background: url(../../assets/svg/arrow.svg) left center no-repeat;
+//       background-size: 42px auto;
+//       filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
+//         brightness(92%) contrast(82%);
+//     }
+//   }
+
+//   @media (min-width: 981px) {
+//     &__container {
+//       padding: 1.5% 0;
+//     }
+
+//     &__moreBtn {
+//       &__arrow {
+//         align-self: end;
+//       }
+//     }
+//   }
+
+//   @media (max-width: 980px) {
+//     &__container {
+//       padding: 3% 7%;
+//       width: 100%;
+//       margin: 0;
+//     }
+
+//     &__moreBtn {
+//       cursor: pointer;
+//       display: flex;
+//       font-size: 17px;
+//       align-items: baseline;
+
+//       &__arrow {
+//         content: "";
+//         margin-left: 10px;
+//         width: 42px;
+//         height: 8px;
+//         display: block;
+//         transform: translate3d(0, -50%, 0) rotate(180deg);
+//         background: url(../../assets/svg/arrow.svg) left center no-repeat;
+//         background-size: 42px auto;
+//         filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
+//           brightness(92%) contrast(82%);
+//       }
+//     }
+//   }
+// }
+
+// @media (min-width: 981px) {
+//   .aboutUs {
+//     padding: 4% 0;
+//   }
+// }
+
+// @media (max-width: 980px) {
+//   .aboutUs {
+//     height: 500px;
+//   }
+// }
+
 .aboutUs {
-  width: 100%;
-  height: 700px;
-  position: relative;
-  background-position: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #f2f2f3;
-  font-family: "Eleganto Sans";
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
 
-  &__container {
+  &__wrapper {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    max-width: 1260px;
-    text-align: left;
-    height: 60vh;
-    direction: ltr;
-    width: 75%;
-    margin: auto;
-
-    &__brandWrapper {
-      direction: ltr;
-      animation-timing-function: linear;
-      animation-duration: 0.2s;
-    }
-
-    @media (min-width: 981px) {
-      h2 {
-        width: 40%;
-        margin-top: 0;
-        margin-right: 5.5%;
-        margin-bottom: 7.493%;
-        font-size: 40px;
-        letter-spacing: 0.2px;
-        line-height: 1.25em;
-      }
-    }
-
-    @media (max-width: 980px) {
-      h2 {
-        margin-bottom: 30.493%;
-        font-size: 25px;
-      }
-    }
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
   }
 
-  &__bgWrap {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  &__bg {
+  &__background {
     background-image: url("../../assets/img/project2.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
-    display: block;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    // transform: translateZ(-10px) scale(2);
   }
 
-  &__brandName {
-    font-weight: 500;
-  }
-
-  &__brandBusiness {
-    font-weight: 500;
-    color: #299390;
-  }
-
-  &__moreBtn {
-    cursor: pointer;
-    display: flex;
-    transition: all 300ms ease 0ms;
-
-    &__arrow {
-      content: "";
-      margin-left: 10px;
-      width: 42px;
-      height: 8px;
-      display: block;
-      transform: translate3d(0, -50%, 0) rotate(180deg);
-      background: url(../../assets/svg/arrow.svg) left center no-repeat;
-      background-size: 42px auto;
-      filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
-        brightness(92%) contrast(82%);
-    }
-  }
-
-  @media (min-width: 981px) {
-    &__container {
-      padding: 1.5% 0;
-    }
-
-    &__moreBtn {
-      &__arrow {
-        align-self: end;
-      }
-    }
-  }
-
-  @media (max-width: 980px) {
-    &__container {
-      padding: 3% 7%;
-      width: 100%;
-      margin: 0;
-    }
-
-    &__moreBtn {
-      cursor: pointer;
-      display: flex;
-      font-size: 17px;
-      align-items: baseline;
-
-      &__arrow {
-        content: "";
-        margin-left: 10px;
-        width: 42px;
-        height: 8px;
-        display: block;
-        transform: translate3d(0, -50%, 0) rotate(180deg);
-        background: url(../../assets/svg/arrow.svg) left center no-repeat;
-        background-size: 42px auto;
-        filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
-          brightness(92%) contrast(82%);
-      }
-    }
-  }
-}
-
-@media (min-width: 981px) {
-  .aboutUs {
-    padding: 4% 0;
-  }
-}
-
-@media (max-width: 980px) {
-  .aboutUs {
-    height: 500px;
+  &__title {
+    font-size: 7rem;
+    color: white;
+    text-shadow: 0 0 5px black;
   }
 }
