@@ -44,6 +44,9 @@ const FilterPanel = (props) => {
       query[props.type] = item.name;
     }
     const {category} = props;
+    if (query.category) {
+      delete query.category;
+    }
     router.replace(
       `/${PRODUCT_PAGE.slug}/${category.slug}?` +
       new URLSearchParams(query).toString()
