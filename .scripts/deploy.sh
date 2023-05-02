@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-yarn install
+yarn install --production
 
-npm run build
-
-npm run restart
+yarn build
