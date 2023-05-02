@@ -1,5 +1,3 @@
-import getConfig from "next/config";
-
 import { HeadTitle } from "components";
 import { ProductHeader, ProductList } from "modules";
 
@@ -19,6 +17,12 @@ export const getStaticProps = async () => {
       publicRequest.get("/page/get-page-by-name/product"),
       publicRequest.get("/category/main-category"),
     ]);
+
+    const productApis = categories.data.map((category) =>
+      publicRequest.get(`/product/get-product-by-category/${category.slug}`)
+    );
+
+    // const [products1, products2] = await Promise.all(productApis);
 
     return {
       props: { page: page.data, categories: categories.data },
