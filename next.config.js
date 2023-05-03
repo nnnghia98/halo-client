@@ -52,6 +52,7 @@ module.exports = async () => {
 
     return withSentryConfig(nextConfig, sentryWebpackPluginOptions);
   } catch (e) {
+    console.log(e)
     return withSentryConfig(nextConfig, sentryWebpackPluginOptions);
   }
 };
