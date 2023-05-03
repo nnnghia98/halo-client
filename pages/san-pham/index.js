@@ -1,9 +1,9 @@
 import { HeadTitle } from "components";
 import { ProductHeader, ProductList } from "modules";
 
-import {getHotProduct} from "apis/product";
-import {getPageDetail} from "apis/page";
-import {getMainCategories} from "apis/category";
+import { getHotProduct } from "apis/product";
+import { getPageDetail } from "apis/page";
+import { getMainCategories } from "apis/category";
 
 const Products = ({ page, categories, products = [] }) => (
   <>
@@ -29,7 +29,6 @@ export const getServerSideProps = async () => {
       },
     };
   } catch (e) {
-    console.log('===e', e)
     return {
       props: {
         page: {},

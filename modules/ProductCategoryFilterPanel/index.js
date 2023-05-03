@@ -1,27 +1,29 @@
-import React, {useEffect, useState} from "react";
-import {useRouter} from "next/router";
-import {Checkbox} from "components";
-import styles from "./ProductCategoryFilterPanel.module.scss";
-import {PRODUCT_PAGE} from "utils/constants";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import isEmpty from "lodash/isEmpty";
 import map from "lodash/map";
 import cloneDeep from "lodash/cloneDeep";
 
+import { Checkbox } from "components";
+import { PRODUCT_PAGE } from "utils/constants";
+
+import styles from "./ProductCategoryFilterPanel.module.scss";
 
 const FilterPanel = (props) => {
   const router = useRouter();
   const query = React.useMemo(() => cloneDeep(router.query), []);
 
-  const {title, type, isDefaultOpen, productAttributeValues} = props;
+  const { title, type, isDefaultOpen, productAttributeValues, category } =
+    props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(isDefaultOpen || false);
 
   useEffect(() => {
     if (!isEmpty(productAttributeValues)) {
-      map(productAttributeValues, item => {
+      map(productAttributeValues, (item) => {
         if (Object.values(router.query).join(",").includes(item.name)) {
           setIsDropdownOpen(true);
         }
-      })
+      });
     }
   }, [productAttributeValues]);
 
@@ -31,7 +33,7 @@ const FilterPanel = (props) => {
     if (query[props.type]) {
       if (query[props.type].includes(item.name)) {
         const arr = query[props.type].split(",");
-        const index = arr.findIndex(v => v === item.name);
+        const index = arr.findIndex((v) => v === item.name);
         arr.splice(index, 1);
         query[props.type] = arr.join(",");
       } else {
@@ -42,13 +44,13 @@ const FilterPanel = (props) => {
     } else {
       query[props.type] = item.name;
     }
-    const {category} = props;
+    const { category } = props;
     if (query.category) {
       delete query.category;
     }
     router.replace(
       `/${PRODUCT_PAGE.slug}/${category.slug}?` +
-      new URLSearchParams(query).toString()
+        new URLSearchParams(query).toString()
     );
   };
 
@@ -56,14 +58,21 @@ const FilterPanel = (props) => {
     if (type === "categories") {
       return (
         <>
-          <div className={styles.filterPanel__categoryName}>Thương hiệu</div>
-          <ul>
-            <li className={styles.filterPanel__selectWrapper}>New</li>
-            <li className={styles.filterPanel__selectWrapper}>Test</li>
-            <li className={styles.filterPanel__selectWrapper}>Temp</li>
-            <li className={styles.filterPanel__selectWrapper}>Quick</li>
-            <li className={styles.filterPanel__selectWrapper}>Thin</li>
-          </ul>
+          <div className={styles.filterPanel__categoryName}>
+            {category.title}
+          </div>
+          {!isEmpty(category.children) && (
+            <ul>
+              {category.children.map((brand) => (
+                <li
+                  key={brand.id}
+                  className={styles.filterPanel__selectWrapper}
+                >
+                  <span>{brand.title}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </>
       );
     }

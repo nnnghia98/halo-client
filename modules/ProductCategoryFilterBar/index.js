@@ -6,9 +6,13 @@ import styles from "./ProductCategoryFilterBar.module.scss";
 import getConfig from "next/config";
 import get from "lodash/get";
 
-const ProductCategoryFilterBar = ({category}) => {
+const ProductCategoryFilterBar = ({ category }) => {
   const config = getConfig();
-  const productAttributes = get(config, "publicRuntimeConfig.productAttributes", []);
+  const productAttributes = get(
+    config,
+    "publicRuntimeConfig.productAttributes",
+    []
+  );
 
   return (
     <div className={styles.filterSideBar}>
@@ -21,8 +25,8 @@ const ProductCategoryFilterBar = ({category}) => {
           isDefaultOpen={true}
           category={category}
         />
-        {
-          productAttributes.length > 0 && productAttributes.map(productAttribute => (
+        {productAttributes.length > 0 &&
+          productAttributes.map((productAttribute) => (
             <FilterPanel
               key={productAttribute.name}
               title={productAttribute.title}
@@ -30,8 +34,7 @@ const ProductCategoryFilterBar = ({category}) => {
               category={category}
               productAttributeValues={productAttribute.product_attribute_values}
             />
-          ))
-        }
+          ))}
       </div>
     </div>
   );

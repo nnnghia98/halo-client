@@ -7,13 +7,13 @@ const Checkbox = ({ obj, onChange, checked = false }) => {
     <div className={styles.checkbox}>
       <input
         type="checkbox"
-        id={`custom-checkbox-${obj.index}`}
+        id={`custom-checkbox-${obj.name}`}
         name={obj.name}
         checked={checked}
         onChange={onChange}
       />
       <span />
-      {obj.name}
+      <label htmlFor={`custom-checkbox-${obj.name}`}>{obj.name}</label>
     </div>
   );
 };
