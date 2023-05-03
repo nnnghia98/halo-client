@@ -29,11 +29,13 @@ export const getServerSideProps = async () => {
       },
     };
   } catch (e) {
+    console.log('===e', e)
     return {
-      redirect: {
-        destination: "/",
-        permanent: false
-      }
+      props: {
+        page: {},
+        categories: [],
+        products: [],
+      },
     };
   }
 };
