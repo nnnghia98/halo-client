@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import project1 from "assets/img/project1.jpg";
 
-import styles from "./CollectionGallery.module.scss";
+import styles from "./PostGallery.module.scss";
 
 const FILTER_BAR_ITEMS = [
   { id: 0, name: "TẤT CẢ" },
@@ -13,7 +13,7 @@ const FILTER_BAR_ITEMS = [
   { id: 3, name: "TỰ NHIÊN" },
 ];
 
-const CollectionGallery = ({ items }) => {
+const PostGallery = ({ items }) => {
   const [isSelected, setIsSelected] = useState(0);
 
   const renderFilterBar = () =>
@@ -50,4 +50,4 @@ const CollectionGallery = ({ items }) => {
   );
 };
 
-export default CollectionGallery;
+export default PostGallery;

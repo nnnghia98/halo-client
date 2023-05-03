@@ -1,11 +1,11 @@
-import { CollectionHeader, CollectionGallery } from "modules";
+import { PostHeader, PostGallery } from "modules";
 
 import publicRequest from "utils/requests";
 
 const Collections = ({ collections }) => (
   <>
-    <CollectionHeader />
-    <CollectionGallery items={collections} />
+    <PostHeader />
+    <PostGallery items={collections} />
   </>
 );
 
