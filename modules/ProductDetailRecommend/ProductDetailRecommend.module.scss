@@ -26,6 +26,11 @@
     display: flex;
   }
 
+  &__arrowWrapper {
+    width: 20px;
+    align-self: center;
+  }
+
   @media (max-width: 980px) {
     &__imgWrapper {
       max-width: 38%;

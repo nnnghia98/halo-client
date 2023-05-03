@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import { useWindowDimensions } from "utils/window";
 import { WIDTH_BREAKPOINT } from "utils/constants";
@@ -44,9 +46,13 @@ const ProductRecommend = () => {
       <h2>ĐỀ XUẤT SẢN PHẨM</h2>
 
       <div className={styles.productRecommend__slideshow}>
-        <div>{"<"}</div>
+        <div className={styles.productRecommend__arrowWrapper}>
+          <FontAwesomeIcon icon={faAngleLeft} style={{ color: "#babec4" }} />
+        </div>
         {width < WIDTH_BREAKPOINT ? renderMobileLayout() : renderWebLayout()}
-        <div>{">"}</div>
+        <div className={styles.productRecommend__arrowWrapper}>
+          <FontAwesomeIcon icon={faAngleRight} style={{ color: "#babec4" }} />{" "}
+        </div>
       </div>
     </div>
   );

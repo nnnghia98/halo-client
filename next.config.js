@@ -16,9 +16,9 @@ const nextConfig = {
 
 async function buildPublicRuntimeConfig() {
   const [routesRes, settingRes, productAttributesRes] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/page/main-page`),
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/setting/fetch-all`),
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/product-attribute/fetch-all`),
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}page/main-page`),
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}setting/fetch-all`),
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}product-attribute/fetch-all`),
   ]);
 
   const [routes, settings, productAttributes] = await Promise.all([
@@ -52,7 +52,7 @@ module.exports = async () => {
 
     return withSentryConfig(nextConfig, sentryWebpackPluginOptions);
   } catch (e) {
-    console.log(e)
+    console.log(e);
     return withSentryConfig(nextConfig, sentryWebpackPluginOptions);
   }
 };
