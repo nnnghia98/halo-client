@@ -20,12 +20,12 @@ import thumb2 from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
 
-const CollectionDetail = () => {
+const CollectionDetail = ({ item }) => {
   const { width } = useWindowDimensions();
 
   return (
     <div className={styles.collectionDetail}>
-      <ProjectDetailBanner />
+      {/* <ProjectDetailBanner title={item.title} /> */}
       <VideoPlayer />
 
       <div className={styles.collectionDetail__imgDetail}>
@@ -74,6 +74,22 @@ const CollectionDetail = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async ({ params }) => {
+  const { detail } = params;
+
+  try {
+    const res = await publicRequest.get(
+      `/post/d/fetch-post-detail-by-slug/${detail}`
+    );
+    const data = await res.data;
+    console.log("====", data);
+
+    return { props: { item: data } };
+  } catch (e) {
+    return { props: {} };
+  }
 };
 
 export default CollectionDetail;

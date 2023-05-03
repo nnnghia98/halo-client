@@ -13,7 +13,7 @@ const FILTER_BAR_ITEMS = [
   { id: 3, name: "TỰ NHIÊN" },
 ];
 
-const CollectionGallery = () => {
+const CollectionGallery = ({ items }) => {
   const [isSelected, setIsSelected] = useState(0);
 
   const renderFilterBar = () =>
@@ -35,68 +35,16 @@ const CollectionGallery = () => {
     <div className={styles.gallery}>
       <div className={styles.gallery__filterBar}>{renderFilterBar()}</div>
       <div className={styles.gallery__list}>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>
-              CÁ CHÉP VƯỢT VŨ MÔN HÓA RỒNG
+        {items.map((item) => (
+          <Link key={item.id} href={`/bo-suu-tap/${item.slug}`}>
+            <div className={styles.gallery__itemWrap}>
+              <Image src={project1} alt="project-1" />
+              <div className={styles.gallery__itemName}>
+                CÁ CHÉP VƯỢT VŨ MÔN HÓA RỒNG
+              </div>
             </div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>AQUARIUS AND VIRGO</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>ABSTRACTION</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>ELEMENTS OF NATURE</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>JEWELRY BOX</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>STARRY SKY</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>AUTUMN LEAVES</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>PRECIOUS STONES</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>KALEIDOSCOPES</div>
-          </div>
-        </Link>
-        <Link href="/bo-suu-tap/detail">
-          <div className={styles.gallery__itemWrap}>
-            <Image src={project1} alt="project-1" />
-            <div className={styles.gallery__itemName}>CRYSTAL WAVES</div>
-          </div>
-        </Link>
+          </Link>
+        ))}
       </div>
     </div>
   );
