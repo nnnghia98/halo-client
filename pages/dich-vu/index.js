@@ -4,7 +4,7 @@ import { CollectionHeader, CollectionGallery } from "modules";
 const Service = () => (
   <>
     <CollectionHeader />
-    <CollectionGallery />
+    <CollectionGallery items={[]} />
   </>
 );
 
