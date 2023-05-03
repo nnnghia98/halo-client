@@ -11,7 +11,7 @@ const Products = ({ page, categories, products = [] }) => (
   </>
 );
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const [page, categories] = await Promise.all([
       publicRequest.get("/page/get-page-by-name/product"),

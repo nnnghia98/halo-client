@@ -11,23 +11,17 @@ import {
   ProjectDetailContact,
 } from "modules";
 
-import { useWindowDimensions } from "utils/window";
-
-import { WIDTH_BREAKPOINT } from "utils/constants";
-
 import arrow from "assets/svg/arrow.svg";
 import thumb2 from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
 
-const CollectionDetail = () => {
-  const { width } = useWindowDimensions();
-
+const CollectionDetail = ({ item }) => {
   return (
     <div className={styles.collectionDetail}>
-      <ProjectDetailBanner />
+      {/* <ProjectDetailBanner title={item.title} /> */}
       <VideoPlayer />
-
+      {console.log(item)}
       <div className={styles.collectionDetail__imgDetail}>
         <div className={styles.collectionDetail__img}>
           <ProjectDetailImage />
@@ -74,6 +68,22 @@ const CollectionDetail = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async ({ params }) => {
+  const { detail } = params;
+
+  try {
+    const res = await publicRequest.get(
+      `/post/d/fetch-post-detail-by-slug/${detail}`
+    );
+    const data = await res.data;
+    console.log("====", data);
+
+    return { props: { item: data } };
+  } catch (e) {
+    return { props: { item: {} } };
+  }
 };
 
 export default CollectionDetail;

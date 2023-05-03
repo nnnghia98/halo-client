@@ -13,6 +13,7 @@
     bottom: 70px;
     left: 10%;
     right: 10%;
+    text-align: center;
   }
 
   &__name {
@@ -29,7 +30,7 @@
   &__arrowDown {
     margin-top: 40px;
 
-    img {
+    span {
       transform: rotate(-90deg);
       width: 42px;
       height: 8px;

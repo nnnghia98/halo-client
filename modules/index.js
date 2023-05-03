@@ -6,8 +6,8 @@ import Collaborators from "./Collaborators";
 import SpecialProducts from "./SpecialProducts";
 import ProductHeader from "./ProductHeader";
 import ProductList from "./ProductList";
-import CollectionHeader from "./CollectionHeader";
-import CollectionGallery from "./CollectionGallery";
+import PostHeader from "./PostHeader";
+import PostGallery from "./PostGallery";
 import ProjectHeader from "./ProjectHeader";
 import ProjectGallery from "./ProjectGallery";
 import ProductDetailDescription from "./ProductDetailDescription";
@@ -35,8 +35,8 @@ export {
   SpecialProducts,
   ProductHeader,
   ProductList,
-  CollectionHeader,
-  CollectionGallery,
+  PostHeader,
+  PostGallery,
   ProjectHeader,
   ProjectGallery,
   ProductDetailDescription,

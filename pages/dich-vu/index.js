@@ -1,10 +1,10 @@
-import { CollectionHeader, CollectionGallery } from "modules";
+import { PostHeader, PostGallery } from "modules";
 
 // change to use Services' components
 const Service = () => (
   <>
-    <CollectionHeader />
-    <CollectionGallery />
+    <PostHeader />
+    <PostGallery items={[]} />
   </>
 );
 

@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "./CollectionHeader.module.scss";
+import styles from "./PostHeader.module.scss";
 
-const CollectionHeader = () => (
+const PostHeader = () => (
   <div className={styles.header}>
     <div className={styles.header__container}>
       <div className={styles.header__paragraphWrapper}>
@@ -16,4 +16,4 @@ const CollectionHeader = () => (
   </div>
 );
 
-export default CollectionHeader;
+export default PostHeader;

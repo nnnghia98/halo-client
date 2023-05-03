@@ -16,7 +16,7 @@ const Layout = ({ props, children }) => (
   </>
 );
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const res = await publicRequest.get("/page/main-page");
     const data = await res.data;

@@ -53,7 +53,7 @@
 
     &__leftArrow,
     &__rightArrow {
-      img {
+      span {
         width: 42px;
         height: 8px;
         // color: white;
@@ -63,7 +63,7 @@
     }
 
     &__rightArrow {
-      img {
+      span {
         transform: rotate(180deg);
       }
     }
