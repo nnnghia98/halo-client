@@ -7,10 +7,8 @@ import {
   Collaborators,
   SpecialProducts,
 } from "modules";
-
-import publicRequest from "utils/requests";
-
 import styles from "./index.module.scss";
+import {getPageDetail} from "apis/page";
 
 const Home = ({ title }) => (
   <div className={styles.home}>
@@ -27,7 +25,7 @@ const Home = ({ title }) => (
 
 export const getServerSideProps = async () => {
   try {
-    const res = await publicRequest.get("/page/get-page-by-name/home");
+    const res = await getPageDetail("home");
     const data = await res.data;
 
     return {
