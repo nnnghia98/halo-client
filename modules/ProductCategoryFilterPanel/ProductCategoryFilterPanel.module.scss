@@ -2,36 +2,42 @@
   width: 100%;
 
   &__panel {
+    border-bottom: 0.5px solid #bfbfbf;
   }
 
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10px;
+    padding: 14px 12px;
+    border-top: 1px solid #bfbfbf;
     cursor: pointer;
 
     h5 {
       padding: 0;
       margin: 0;
+      font-size: 13px;
       font-weight: 600;
     }
   }
 
   &__body,
   &__body__active {
-    font-size: 15px;
+    font-size: 13px;
     padding: 0 10px;
     border-top: 1px solid #bfbfbf;
 
     ul {
       list-style-type: none;
       padding: 0;
-      margin: 0;
+      margin: 8px 0;
 
       li {
-        font-size: 13px;
-        cursor: pointer;
+        font-size: 11px;
+
+        span {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -50,11 +56,13 @@
 
   &__categoryName {
     font-weight: 500;
-    margin-top: 15px;
+    // margin-top: 8px;
+    // margin-left: 5px;
+    margin: 8px 0 8px 5px;
   }
 
   &__selectWrapper {
-    margin: 7px 15px;
+    margin: 7px 20px;
   }
 
   &__checkboxWrapper {

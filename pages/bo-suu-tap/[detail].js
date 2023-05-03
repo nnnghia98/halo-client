@@ -21,7 +21,7 @@ const CollectionDetail = ({ item }) => {
     <div className={styles.collectionDetail}>
       {/* <ProjectDetailBanner title={item.title} /> */}
       <VideoPlayer />
-      {console.log(item)}
+
       <div className={styles.collectionDetail__imgDetail}>
         <div className={styles.collectionDetail__img}>
           <ProjectDetailImage />
@@ -78,7 +78,6 @@ export const getServerSideProps = async ({ params }) => {
       `/post/d/fetch-post-detail-by-slug/${detail}`
     );
     const data = await res.data;
-    console.log("====", data);
 
     return { props: { item: data } };
   } catch (e) {
