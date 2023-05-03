@@ -16,7 +16,7 @@ const ProductList = ({ categories, products }) => {
       <Link
         href={{
           pathname: PATHS.PRODUCT_CATEGORY,
-          query: { category: c.slug },
+          query: { slug: c.slug },
         }}
         key={c.id}
         className={
