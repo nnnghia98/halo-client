@@ -1,11 +1,9 @@
 import React from "react";
-
 import {HeadTitle} from "components";
 import {ProductCategoryFilterBar, ProductList} from "modules";
-
-import publicRequest from "utils/requests";
-
 import styles from "./index.module.scss";
+import {getProductsByCategory} from "apis/product";
+import {getCategoryDetail} from "apis/category";
 
 const ProductDetail = ({category, products}) => {
   return (
@@ -33,10 +31,8 @@ export const getServerSideProps = async ({params, query}) => {
 
   try {
     const [categoryData, products] = await Promise.all([
-      publicRequest.get(`/category/d/${category}`),
-      publicRequest.get(`/product/get-product-by-category/${category}`, {
-        params: buildQuery
-      }),
+      getCategoryDetail(category),
+      getProductsByCategory(category, {params: buildQuery}),
     ]);
     return {props: {category: categoryData.data, products: products.data}};
   } catch (e) {

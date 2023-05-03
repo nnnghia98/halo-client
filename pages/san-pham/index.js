@@ -1,7 +1,9 @@
 import { HeadTitle } from "components";
 import { ProductHeader, ProductList } from "modules";
 
-import publicRequest from "utils/requests";
+import {getHotProduct} from "apis/product";
+import {getPageDetail} from "apis/page";
+import {getMainCategories} from "apis/category";
 
 const Products = ({ page, categories, products = [] }) => (
   <>
@@ -13,35 +15,25 @@ const Products = ({ page, categories, products = [] }) => (
 
 export const getServerSideProps = async () => {
   try {
-    const [page, categories] = await Promise.all([
-      publicRequest.get("/page/get-page-by-name/product"),
-      publicRequest.get("/category/main-category"),
+    const [page, categories, productsHot] = await Promise.all([
+      getPageDetail("product"),
+      getMainCategories(),
+      getHotProduct(),
     ]);
-
-    const promise = [];
-
-    categories.data.map((category) => {
-      promise.push(
-        publicRequest.get(`/product/get-product-by-category/${category.slug}`)
-      );
-    });
-
-    const result = await Promise.all(promise);
-
-    const products = [];
-
-    result.forEach((product) => products.push(...product.data));
 
     return {
       props: {
         page: page.data,
         categories: categories.data,
-        products: products,
+        products: productsHot.data,
       },
     };
   } catch (e) {
     return {
-      props: { page: {}, categories: {} },
+      redirect: {
+        destination: "/",
+        permanent: false
+      }
     };
   }
 };
