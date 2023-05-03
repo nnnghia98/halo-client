@@ -78,17 +78,21 @@ const FilterPanel = (props) => {
     }
 
     return (
-      <ul>
-        {productAttributeValues.map((obj) => (
-          <li key={obj.name} className={styles.filterPanel__checkboxWrapper}>
-            <Checkbox
-              checked={Object.values(router.query).join(",").includes(obj.name)}
-              obj={obj}
-              onChange={() => handleOnChange(obj)}
-            />
-          </li>
-        ))}
-      </ul>
+      !isEmpty(productAttributeValues) && (
+        <ul>
+          {productAttributeValues.map((obj) => (
+            <li key={obj.name} className={styles.filterPanel__checkboxWrapper}>
+              <Checkbox
+                checked={Object.values(router.query)
+                  .join(",")
+                  .includes(obj.name)}
+                obj={obj}
+                onChange={() => handleOnChange(obj)}
+              />
+            </li>
+          ))}
+        </ul>
+      )
     );
   };
 
@@ -98,6 +102,7 @@ const FilterPanel = (props) => {
         <h5>{title}</h5>
         <div>{isDropdownOpen ? "-" : "+"}</div>
       </div>
+
       <div
         className={
           isDropdownOpen
