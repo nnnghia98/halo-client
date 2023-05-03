@@ -18,7 +18,7 @@ const ProductDetail = (props) => {
 
   return (
     <div className={styles.productDetail}>
-      {/* <HeadTitle title={props.title} /> */}
+      <HeadTitle title={props.title} />
       <Breadcrumb paths={PRODUCT_DETAIL_PATHS} />
 
       <div className={styles.productDetail__content}>
@@ -35,32 +35,19 @@ const ProductDetail = (props) => {
   );
 };
 
-// export const getStaticPaths = async () => {
-//   try {
-//     // call api get all product and pass to paths
+export const getServerSideProps = async ({ params }) => {
+  const { detail } = params;
 
-//     const paths = { params: { detail: "detail" } };
+  try {
+    const res = await publicRequest.get(
+      `/product/d/fetch-product-detail-by-slug/${detail}`
+    );
+    const data = await res.data;
 
-//     return { paths, fallback: false };
-//   } catch (e) {
-//     return {
-//       paths: [],
-//       fallback: "blocking",
-//     };
-//   }
-// };
-
-// export const getStaticProps = async ({ params }) => {
-//   const { category } = params;
-
-//   try {
-//     const res = await publicRequest.get(`d/${category}`);
-//     const categoryData = await res.data;
-
-//     return { props: categoryData };
-//   } catch (e) {
-//     return { props: {} };
-//   }
-// };
+    return { props: { product: data } };
+  } catch (e) {
+    return { props: { product: {} } };
+  }
+};
 
 export default ProductDetail;
