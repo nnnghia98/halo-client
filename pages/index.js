@@ -25,7 +25,7 @@ const Home = ({ title }) => (
   </div>
 );
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const res = await publicRequest.get("/page/get-page-by-name/home");
     const data = await res.data;
