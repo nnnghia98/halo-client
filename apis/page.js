@@ -1,5 +1,5 @@
 import requests from "../utils/requests";
 
-export const getPageDetail = (pageSlug) => requests({
-  url: `/page/get-page-by-name/${pageSlug}`
+export const getPageDetail = (pageName) => requests({
+  url: `/page/get-page-by-name/${pageName}`
 })
