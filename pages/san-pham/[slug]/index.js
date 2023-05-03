@@ -43,9 +43,9 @@ const ProductDetail = ({ category, products, product }) => {
 
       <div className={styles.productDetail__content}>
         {width < WIDTH_BREAKPOINT ? (
-          <ProductDetailMobileContent />
+          <ProductDetailMobileContent product={product} />
         ) : (
-          <WebContent />
+          <WebContent product={product} />
         )}
       </div>
 

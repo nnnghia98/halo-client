@@ -25,10 +25,13 @@
     padding: 13px 60px;
     border: 2px solid lightgrey;
     background-color: #ffffff;
+    cursor: pointer;
   }
 
   &__additionalRequire {
     margin-bottom: 20px;
+    font-weight: 600;
+    cursor: pointer;
   }
 
   &__aboutUsDetail,
