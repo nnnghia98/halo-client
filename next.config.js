@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const path = require("path");
+const { withSentryConfig } = require("@sentry/nextjs");
 
 const nextConfig = {
   reactStrictMode: true,
@@ -11,9 +12,19 @@ const nextConfig = {
     loader: "akamai",
     path: "",
   },
+  sentry: {
+    hideSourceMaps: true,
+    enabled: process.env.NODE_ENV === 'production'
+  }
 };
 
-module.exports = async (phase, { defaultConfig }) => {
+const sentryWebpackPluginOptions = {
+  org: "phongtran-9e",
+  project: "halo",
+  silent: true, // Suppresses all logs
+};
+
+module.exports = withSentryConfig(async (phase, { defaultConfig }) => {
   try {
     const [routesRes, settingRes, productAttributesRes] = await Promise.all([
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}page/main-page`),
@@ -24,6 +35,7 @@ module.exports = async (phase, { defaultConfig }) => {
     const [routes, settings, productAttributes] = await Promise.all([routesRes.json(), settingRes.json(), productAttributesRes.json()]);
 
     return {
+      sentryWebpackPluginOptions,
       defaultConfig,
       publicRuntimeConfig: {
         routes: routes.data,
@@ -38,4 +50,4 @@ module.exports = async (phase, { defaultConfig }) => {
       ...nextConfig,
     };
   }
-};
+});
