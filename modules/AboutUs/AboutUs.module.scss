@@ -76,9 +76,11 @@
   }
 
   &__brandWrapper {
-    direction: ltr;
-    animation-timing-function: linear;
-    animation-duration: 0.2s;
+    display: block;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &__brandWrapper:hover {
   }
 
   &__background {
@@ -133,5 +135,16 @@
           brightness(92%) contrast(82%);
       }
     }
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

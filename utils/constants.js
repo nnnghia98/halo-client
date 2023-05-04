@@ -34,3 +34,5 @@ export const PRODUCT_PAGE = {
 export const PRODUCT_DETAIL_PATHS = ["SẢN PHẨM", "HALOLIGHTING", "ĐÈN CHÙM"];
 
 export const WIDTH_BREAKPOINT = 980;
+
+export const ABOUT_US_HEIGHT_BREAKPOINT = 270;

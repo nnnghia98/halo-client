@@ -3,7 +3,7 @@
 const path = require("path");
 
 const nextConfig = {
-  reactStrictMode: process.env.NODE_ENV === 'development',
+  reactStrictMode: process.env.NODE_ENV === "development",
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -33,7 +33,7 @@ async function buildPublicRuntimeConfig() {
   };
 }
 
-module.exports = async (phase, {defaultConfig}) => {
+module.exports = async (phase, { defaultConfig }) => {
   try {
     const publicRuntimeConfigRes = await buildPublicRuntimeConfig();
 
@@ -45,11 +45,11 @@ module.exports = async (phase, {defaultConfig}) => {
 
     return {
       defaultConfig,
-      ...nextConfig
+      ...nextConfig,
     };
   } catch (e) {
     return {
-      defaultConfig
-    }
+      defaultConfig,
+    };
   }
 };
