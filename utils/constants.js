@@ -1,5 +1,6 @@
 export const PATHS = {
   PRODUCT_CATEGORY: "/san-pham/[slug]",
+  PRODUCT: "/san-pham",
 };
 
 export const DEFAULT_ROUTES = [
