@@ -1,0 +1,11 @@
+$desktop-width: 960px;
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$desktop-width - 1}) {
+    @content;
+  }
+}

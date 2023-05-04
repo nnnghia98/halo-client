@@ -1,44 +1,45 @@
 import React from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-
+import Carousel from 'react-grid-carousel'
 import { useWindowDimensions } from "utils/window";
-import { WIDTH_BREAKPOINT } from "utils/constants";
-
+import { PRODUCT_PAGE, WIDTH_BREAKPOINT } from "utils/constants";
 import thumb2 from "assets/img/thumb2.jpg";
-
 import styles from "./ProductDetailRecommend.module.scss";
+import { useRouter } from "next/router";
 
-const ProductRecommend = () => {
+const ProductRecommend = ({ relatedProducts }) => {
   const { width } = useWindowDimensions();
+  const router = useRouter();
 
-  const renderWebLayout = () => (
-    <>
-      <div className={styles.productRecommend__imgWrapper}>
-        <Image src={thumb2} alt="" />
-      </div>
-      <div className={styles.productRecommend__imgWrapper}>
-        <Image src={thumb2} alt="" />
-      </div>
-      <div className={styles.productRecommend__imgWrapper}>
-        <Image src={thumb2} alt="" />
-      </div>
-      <div className={styles.productRecommend__imgWrapper}>
-        <Image src={thumb2} alt="" />
-      </div>
-    </>
-  );
-
-  const renderMobileLayout = () => (
-    <>
-      <div className={styles.productRecommend__imgWrapper}>
-        <Image src={thumb2} alt="" />
-      </div>
-      <div className={styles.productRecommend__imgWrapper}>
-        <Image src={thumb2} alt="" />
-      </div>
-    </>
+  const renderRelatedProducts = () => (
+    <Carousel
+      cols={width < WIDTH_BREAKPOINT ? 2 : 4} rows={1} loop autoplay={3000}
+    >
+      {
+        relatedProducts.map(product => (
+          <Carousel.Item
+            key={product.title}
+            className={styles.productRecommend__imgWrapper}
+          >
+            <Image
+              src={product.thumbnail ?? thumb2}
+              width="250"
+              height="250"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                router.push(`/${PRODUCT_PAGE.slug}/${product.slug}`)
+              }}
+            />
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                router.push(`/${PRODUCT_PAGE.slug}/${product.slug}`)
+              }}
+            >{product.title}</p>
+          </Carousel.Item>
+        ))
+      }
+    </Carousel>
   );
 
   return (
@@ -46,13 +47,7 @@ const ProductRecommend = () => {
       <h2>ĐỀ XUẤT SẢN PHẨM</h2>
 
       <div className={styles.productRecommend__slideshow}>
-        <div className={styles.productRecommend__arrowWrapper}>
-          <FontAwesomeIcon icon={faAngleLeft} style={{ color: "#babec4" }} />
-        </div>
-        {width < WIDTH_BREAKPOINT ? renderMobileLayout() : renderWebLayout()}
-        <div className={styles.productRecommend__arrowWrapper}>
-          <FontAwesomeIcon icon={faAngleRight} style={{ color: "#babec4" }} />{" "}
-        </div>
+        {renderRelatedProducts()}
       </div>
     </div>
   );
