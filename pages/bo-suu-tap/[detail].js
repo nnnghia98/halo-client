@@ -15,6 +15,7 @@ import arrow from "assets/svg/arrow.svg";
 import thumb2 from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
+import {getPostDetailBySlug} from "apis/post";
 
 const CollectionDetail = ({ item }) => {
   return (
@@ -74,10 +75,8 @@ export const getServerSideProps = async ({ params }) => {
   const { detail } = params;
 
   try {
-    const res = await publicRequest.get(
-      `/post/d/fetch-post-detail-by-slug/${detail}`
-    );
-    const data = await res.data;
+    const res = await getPostDetailBySlug(detail);
+    const data = res.data;
 
     return { props: { item: data } };
   } catch (e) {

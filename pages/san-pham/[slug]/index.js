@@ -1,8 +1,7 @@
 import React from "react";
-import isEqual from "lodash/isEqual";
 import isEmpty from "lodash/isEmpty";
 
-import { HeadTitle, Breadcrumb } from "components";
+import {HeadTitle, Breadcrumb} from "components";
 import {
   ProductCategoryFilterBar,
   ProductList,
@@ -12,25 +11,25 @@ import {
   WebContent,
 } from "modules";
 
-import { getProductsByCategory, getProductBySlug } from "apis/product";
-import { getCategoryDetail } from "apis/category";
-import { PRODUCT_DETAIL_PATHS, WIDTH_BREAKPOINT } from "utils/constants";
-import { useWindowDimensions } from "utils/window";
+import {getProductsByCategory, getProductBySlug} from "apis/product";
+import {getCategoryDetail} from "apis/category";
+import {PRODUCT_DETAIL_PATHS, WIDTH_BREAKPOINT} from "utils/constants";
+import {useWindowDimensions} from "utils/window";
 
 import styles from "./index.module.scss";
 
-const ProductDetail = ({ category, products, product }) => {
-  const { width } = useWindowDimensions();
+const ProductDetail = ({category, products, product}) => {
+  const {width} = useWindowDimensions();
 
   const renderCategoryContent = () => (
     <>
-      <HeadTitle title={category.title} />
+      <HeadTitle title={category.title}/>
       <div className={styles.productDetail__content}>
         <div className={styles.productDetail__filterBarWrapper}>
-          <ProductCategoryFilterBar category={category} />
+          <ProductCategoryFilterBar category={category}/>
         </div>
         <div className={styles.productDetail__productListWrapper}>
-          <ProductList products={products} />
+          <ProductList products={products}/>
         </div>
       </div>
     </>
@@ -38,19 +37,19 @@ const ProductDetail = ({ category, products, product }) => {
 
   const renderProductDetailContent = () => (
     <>
-      <HeadTitle title={product.title} />
-      <Breadcrumb paths={PRODUCT_DETAIL_PATHS} />
+      <HeadTitle title={product.title}/>
+      <Breadcrumb paths={PRODUCT_DETAIL_PATHS}/>
 
       <div className={styles.productDetail__content}>
         {width < WIDTH_BREAKPOINT ? (
-          <ProductDetailMobileContent product={product} />
+          <ProductDetailMobileContent product={product}/>
         ) : (
-          <WebContent product={product} />
+          <WebContent product={product}/>
         )}
       </div>
 
-      <ProductDetailRecommend />
-      <ProductDetailSubscribe />
+      <ProductDetailRecommend/>
+      <ProductDetailSubscribe/>
     </>
   );
 
@@ -63,41 +62,42 @@ const ProductDetail = ({ category, products, product }) => {
   );
 };
 
-export const getServerSideProps = async ({ params, query }) => {
-  const { slug } = params;
+export const getServerSideProps = ({params, query}) => {
+  const {slug} = params;
   let buildQuery = {};
 
-  if (query.category) {
-    delete query.category;
+  if (query.slug) {
+    delete query.slug;
     buildQuery = query;
   }
 
-  const result = { category: {}, products: [], product: {} };
-
-  try {
-    if (isEqual(slug, "thuong-hieu") || isEqual(slug, "thi-truong")) {
+  return getProductBySlug(slug).then(res => {
+    return {
+      props: {
+        product: res.data,
+      }
+    }
+  }).catch(async (err) => {
+    if (err.response.data.code === 404) {
       const [categoryData, products] = await Promise.all([
         getCategoryDetail(slug),
-        getProductsByCategory(slug, { params: buildQuery }),
+        getProductsByCategory(slug, {params: buildQuery}),
       ]);
-
-      result.category = categoryData.data;
-      result.products = products.data;
-    } else {
-      const productRes = await getProductBySlug(slug);
-      const product = await productRes.data;
-
-      result.product = product;
+      return {
+        props: {
+          category: categoryData.data,
+          products: products.data
+        }
+      }
     }
-
+  }).finally(() => {
     return {
-      props: result,
-    };
-  } catch (e) {
-    return {
-      props: result,
-    };
-  }
+      redirect: {
+        destination: "/",
+        permanent: false
+      }
+    }
+  })
 };
 
 export default ProductDetail;

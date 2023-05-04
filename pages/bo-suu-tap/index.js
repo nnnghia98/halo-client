@@ -1,6 +1,6 @@
+import React from "react";
 import { PostHeader, PostGallery } from "modules";
-
-import publicRequest from "utils/requests";
+import {getPostsByType} from "apis/post";
 
 const Collections = ({ collections }) => (
   <>
@@ -11,8 +11,8 @@ const Collections = ({ collections }) => (
 
 export const getServerSideProps = async () => {
   try {
-    const res = await publicRequest.get("/post/fetch-posts-by-type/collection");
-    const collections = await res.data;
+    const res = await getPostsByType("collection");
+    const collections = res.data;
 
     return {
       props: {
