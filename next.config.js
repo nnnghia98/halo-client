@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 const path = require("path");
-const { withSentryConfig } = require("@sentry/nextjs");
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: process.env.NODE_ENV === 'development',
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -34,25 +33,23 @@ async function buildPublicRuntimeConfig() {
   };
 }
 
-const sentryWebpackPluginOptions = {
-  org: "phongtran-9e",
-  project: "halo",
-  silent: true, // Suppresses all logs
-};
-
-module.exports = async () => {
+module.exports = async (phase, {defaultConfig}) => {
   try {
     const publicRuntimeConfigRes = await buildPublicRuntimeConfig();
 
     nextConfig.publicRuntimeConfig = publicRuntimeConfigRes;
     nextConfig.sentry = {
       hideSourceMaps: true,
-      enabled: process.env.NODE_ENV === "production",
+      enabled: true,
     };
 
-    return withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+    return {
+      defaultConfig,
+      ...nextConfig
+    };
   } catch (e) {
-    console.log(e);
-    return withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+    return {
+      defaultConfig
+    }
   }
 };
