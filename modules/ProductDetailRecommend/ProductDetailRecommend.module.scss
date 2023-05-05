@@ -1,4 +1,5 @@
 @import "styles/mixin";
+
 .productRecommend {
   @include desktop {
     width: 60%;
@@ -15,7 +16,7 @@
     justify-content: center;
     gap: 30px;
 
-    @include desktop{
+    @include desktop {
       h2 {
         font-size: 20px;
       }
@@ -29,10 +30,10 @@
 
   &__arrowWrapper {
     width: 20px;
-    align-self: center;
+    cursor: pointer;
   }
 
-  @include desktop{
+  @include desktop {
     &__imgWrapper {
       width: 100%;
     }

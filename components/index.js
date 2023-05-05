@@ -5,6 +5,7 @@ import Breadcrumb from "./Breadcrumb";
 import VideoPlayer from "./VideoPlayer";
 import HeadTitle from "./HeadTitle";
 import Checkbox from "./Checkbox";
+import HorizontalCarousel from "./HorizontalCarousel";
 
 export {
   HeaderNavbar,
@@ -14,4 +15,5 @@ export {
   VideoPlayer,
   HeadTitle,
   Checkbox,
+  HorizontalCarousel,
 };
