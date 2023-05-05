@@ -13,7 +13,7 @@ const Checkbox = ({ obj, onChange, checked = false }) => {
         onChange={onChange}
       />
       <span />
-      <label htmlFor={`custom-checkbox-${obj.name}`}>{obj.name}</label>
+      <label htmlFor={`custom-checkbox-${obj.name}`}>{obj.title}</label>
     </div>
   );
 };

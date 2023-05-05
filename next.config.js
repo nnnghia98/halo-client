@@ -25,7 +25,6 @@ async function buildPublicRuntimeConfig() {
     settingRes.json(),
     productAttributesRes.json(),
   ]);
-
   return {
     routes: routes.data,
     settings: settings.data,
@@ -38,10 +37,6 @@ module.exports = async (phase, { defaultConfig }) => {
     const publicRuntimeConfigRes = await buildPublicRuntimeConfig();
 
     nextConfig.publicRuntimeConfig = publicRuntimeConfigRes;
-    nextConfig.sentry = {
-      hideSourceMaps: true,
-      enabled: true,
-    };
 
     return {
       defaultConfig,

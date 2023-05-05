@@ -19,14 +19,13 @@ const ProductCategoryFilterBar = ({ category }) => {
       <h4>FILTER</h4>
 
       <div className={styles.filterSideBar__wrapper}>
-        <FilterPanel
-          title="CATEGORIES"
-          type="categories"
-          isDefaultOpen={true}
-          category={category}
-        />
         {productAttributes.length > 0 &&
-          productAttributes.map((productAttribute) => (
+          productAttributes.filter(p => {
+            if (p.category_id && p.category_id !== category.id) {
+              return null;
+            }
+            return p;
+          }).filter(p => p).map((productAttribute) => (
             <FilterPanel
               key={productAttribute.name}
               title={productAttribute.title}
