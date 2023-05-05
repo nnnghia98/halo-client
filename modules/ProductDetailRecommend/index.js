@@ -43,13 +43,15 @@ const ProductRecommend = ({ relatedProducts }) => {
   );
 
   return (
-    <div className={styles.productRecommend}>
-      <h2>ĐỀ XUẤT SẢN PHẨM</h2>
+    relatedProducts.length > 0 ? (
+      <div className={styles.productRecommend}>
+        <h2>ĐỀ XUẤT SẢN PHẨM</h2>
 
-      <div className={styles.productRecommend__slideshow}>
-        {renderRelatedProducts()}
+        <div className={styles.productRecommend__slideshow}>
+          {renderRelatedProducts()}
+        </div>
       </div>
-    </div>
+    ) : null
   );
 };
 
