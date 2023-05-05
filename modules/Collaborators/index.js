@@ -24,16 +24,16 @@ const Collaborators = () => {
             autoplay={3000}
             gap={20}
           >
-            <Item className={styles.collaborators__itemWrap}>
+            <Item>
               <Image src={project1} width="150" height="150" />
             </Item>
-            <Item className={styles.collaborators__itemWrap}>
+            <Item>
               <Image src={project1} width="150" height="150" />
             </Item>
-            <Item className={styles.collaborators__itemWrap}>
+            <Item>
               <Image src={project1} width="150" height="150" />
             </Item>
-            <Item className={styles.collaborators__itemWrap}>
+            <Item>
               <Image src={project1} width="150" height="150" />
             </Item>
           </HorizontalCarousel>
