@@ -10,6 +10,10 @@
   font-family: "Eleganto Sans";
   color: #fff;
 
+  &__animated {
+    transition: ease-in 0.8s;
+  }
+
   &__container {
     display: flex;
     height: 60vh;
