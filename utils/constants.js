@@ -31,6 +31,11 @@ export const PRODUCT_PAGE = {
   slug: "san-pham",
 };
 
+export const COLLECTION_PAGE = {
+  title: "Bộ sưu tập",
+  slug: "bo-suu-tap"
+}
+
 export const PRODUCT_DETAIL_PATHS = ["SẢN PHẨM", "HALOLIGHTING", "ĐÈN CHÙM"];
 
 export const WIDTH_BREAKPOINT = 980;
