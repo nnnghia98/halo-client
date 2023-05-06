@@ -4,7 +4,7 @@ import { PostHeader, PostGallery } from "modules";
 const Service = () => (
   <>
     <PostHeader />
-    <PostGallery items={[]} />
+    <PostGallery items={[]} categories={[]} />
   </>
 );
 
