@@ -3,10 +3,8 @@ import { useRouter } from "next/router";
 import isEmpty from "lodash/isEmpty";
 import map from "lodash/map";
 import cloneDeep from "lodash/cloneDeep";
-
 import { Checkbox } from "components";
 import { PRODUCT_PAGE } from "utils/constants";
-
 import styles from "./ProductCategoryFilterPanel.module.scss";
 import {getSetting} from "utils/common";
 
@@ -27,7 +25,7 @@ const FilterPanel = (props) => {
         }
       });
     }
-  }, [productAttributeValues]);
+  }, [productAttributeValues, JSON.stringify(router.query)]);
 
   useEffect(() => {
     if (category) {

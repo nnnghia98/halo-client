@@ -1,27 +1,33 @@
 import React from "react";
 import { PostHeader, PostGallery } from "modules";
 import {getPostsByType} from "apis/post";
+import {getPageDetail} from "apis/page";
+import HeadTitle from "../../components/HeadTitle";
 
-const Collections = ({ collections }) => (
+const Collections = ({ pageDetail, postsCollection }) => (
   <>
+    <HeadTitle title={pageDetail.title} />
     <PostHeader />
-    <PostGallery items={collections} />
+    <PostGallery items={postsCollection} />
   </>
 );
 
 export const getServerSideProps = async () => {
   try {
-    const res = await getPostsByType("collection");
-    const collections = res.data;
+    const [pageDetail, postsCollection] = await Promise.all([
+      getPageDetail("collection"),
+      getPostsByType("collection")
+    ]);
 
     return {
       props: {
-        collections,
+        pageDetail: pageDetail.data,
+        postsCollection: postsCollection.data
       },
     };
   } catch (e) {
     return {
-      props: { collections: [] },
+      props: { pageDetail: {}, postsCollection: [] },
     };
   }
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { PATHS } from "utils/constants";
+import {PATHS, PRODUCT_PAGE} from "utils/constants";
 
 import project1 from "assets/img/project1.jpg";
 
@@ -26,7 +26,6 @@ const ProductList = ({ categories, products }) => {
         }
         onClick={() => {
           setIsSelected(c.id);
-          setcSelected(c.items);
         }}
       >
         {c.title}
@@ -43,7 +42,7 @@ const ProductList = ({ categories, products }) => {
         )}
         <div className={styles.productList__list}>
           {products.map((product) => (
-            <Link key={product.slug} href={`/san-pham/${product.slug}`}>
+            <Link key={product.slug} href={`/${PRODUCT_PAGE.slug}/${product.slug}`}>
               <div className={styles.productList__itemWrap}>
                 <Image
                   className={styles.productsList__itemImage}
