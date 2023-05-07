@@ -1,14 +1,22 @@
 import React from "react";
 import { PostHeader, PostGallery } from "modules";
-import {getPostsByType} from "apis/post";
-import {getPageDetail} from "apis/page";
-import HeadTitle from "../../components/HeadTitle";
-import {getCategoriesByPageSlug} from "../../apis/category";
+
+import { HeadTitle } from "components";
+
+import { getPostsByType } from "apis/post";
+import { getPageDetail } from "apis/page";
+import { getCategoriesByPageSlug } from "apis/category";
+
+const COLLECTION_POST_HEADER_DES = `Mang đến những cung bậc sắc màu và thổi hồn nghệ thuật cho
+không gian là sứ mệnh của chúng tôi.`;
 
 const Collections = ({ pageDetail, postsCollection, categories }) => (
   <>
     <HeadTitle title={pageDetail.title} />
-    <PostHeader />
+    <PostHeader
+      title={pageDetail.title}
+      description={COLLECTION_POST_HEADER_DES}
+    />
     <PostGallery items={postsCollection} categories={categories} />
   </>
 );
@@ -26,7 +34,7 @@ export const getServerSideProps = async () => {
       props: {
         pageDetail: pageDetail.data,
         postsCollection: postsCollection.data,
-        categories: categories.data
+        categories: categories.data,
       },
     };
   } catch (e) {
