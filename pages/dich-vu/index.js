@@ -1,9 +1,12 @@
 import { PostHeader, PostGallery } from "modules";
 
-// change to use Services' components
+import { HeadTitle } from "components";
+
+const TITLE = "Dịch vụ";
 const Service = () => (
   <>
-    <PostHeader />
+    <HeadTitle title={TITLE} />
+    <PostHeader title={TITLE} />
     <PostGallery items={[]} categories={[]} />
   </>
 );

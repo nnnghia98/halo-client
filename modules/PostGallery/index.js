@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import { COLLECTION_PAGE } from "utils/constants";
+
 import project1 from "assets/img/project1.jpg";
 import styles from "./PostGallery.module.scss";
-import { COLLECTION_PAGE } from "utils/constants";
 
 const PostGallery = ({ items, categories }) => {
   const [isSelected, setIsSelected] = useState(0);
@@ -14,12 +16,12 @@ const PostGallery = ({ items, categories }) => {
     if (id === 0) {
       setPosts(items);
     } else {
-      setPosts(() => items.filter(p => p.category_id === id))
+      setPosts(() => items.filter((p) => p.category_id === id));
     }
-  }
+  };
 
-  const renderFilterBar = () => (
-    categories.map(item => (
+  const renderFilterBar = () =>
+    categories.map((item) => (
       <div
         key={item.id}
         className={
@@ -31,8 +33,7 @@ const PostGallery = ({ items, categories }) => {
       >
         {item.title.toUpperCase()}
       </div>
-    ))
-  )
+    ));
 
   return (
     <div className={styles.gallery}>
