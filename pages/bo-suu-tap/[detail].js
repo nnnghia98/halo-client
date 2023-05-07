@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { Item } from "react-grid-carousel";
+import isEmpty from "lodash/isEmpty";
 
-import { VideoPlayer } from "components";
+import { VideoPlayer, HorizontalCarousel } from "components";
 import {
   ProjectDetailBanner,
   ProjectDetailImage,
@@ -11,25 +13,50 @@ import {
   ProjectDetailContact,
 } from "modules";
 
+import { getPostDetailBySlug } from "apis/post";
+import { WIDTH_BREAKPOINT } from "utils/constants";
+import { useWindowDimensions } from "utils/window";
+import { getSpecificSliders } from "utils/sliders";
+import { SLIDER } from "utils/constants";
+
 import arrow from "assets/svg/arrow.svg";
 import thumb2 from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
-import {getPostDetailBySlug} from "apis/post";
 
 const CollectionDetail = ({ item }) => {
+  const { width } = useWindowDimensions();
+
+  const renderBannerContent = () => {
+    if (isEmpty(item.video_banner_url)) {
+      <div className={styles.collectionDetail__bannerCarousel}>
+        <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
+          {getSliders(SLIDER.SPECIAL_SLIDER).map((slider) => (
+            <Item key={slider.id}>
+              <Image
+                src={slider.thumbnail}
+                alt={slider.name}
+                width="500"
+                height="700"
+              />
+            </Item>
+          ))}
+        </HorizontalCarousel>
+      </div>;
+    }
+
+    return <VideoPlayer src={item.video_banner_url} />;
+  };
+
+  const getSliders = (group) => getSpecificSliders(item.sliders, group);
+
   return (
     <div className={styles.collectionDetail}>
-      {/* <ProjectDetailBanner title={item.title} /> */}
-      <VideoPlayer />
+      <ProjectDetailBanner title={item.title} location={item.description} />
+      {renderBannerContent()}
 
       <div className={styles.collectionDetail__imgDetail}>
-        <div className={styles.collectionDetail__img}>
-          <ProjectDetailImage />
-        </div>
-        <div className={styles.collectionDetail__videoPlayer}>
-          <ProjectDetailDetail />
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: item.content }} />
       </div>
 
       <div className={styles.collectionDetail__storyCarousel}>

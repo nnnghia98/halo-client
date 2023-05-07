@@ -33,8 +33,8 @@ export const PRODUCT_PAGE = {
 
 export const COLLECTION_PAGE = {
   title: "Bộ sưu tập",
-  slug: "bo-suu-tap"
-}
+  slug: "bo-suu-tap",
+};
 
 export const PRODUCT_DETAIL_PATHS = ["SẢN PHẨM", "HALOLIGHTING", "ĐÈN CHÙM"];
 
@@ -45,4 +45,10 @@ export const HEIGHT_BREAKPOINT = {
   BESPOKE_PROJECTS: 150,
   RESIDENTAL_COLLECTIONSL: 200,
   SPECIAL_PRODUCTS: 230,
+};
+
+export const SLIDER = {
+  SPECIAL_SLIDER: "special_slider",
+  CONTENT_SLIDER: "content_slider",
+  BOTTOM_SLIDER: "bottom_slider",
 };
