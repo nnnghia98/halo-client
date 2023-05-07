@@ -9,18 +9,27 @@ import youtube from "assets/svg/youtube.svg";
 import tiktok from "assets/svg/tiktok.svg";
 
 import styles from "./Footer.module.scss";
+import getConfig from "next/config";
+import get from "lodash/get";
+import {DEFAULT_ROUTES} from "utils/constants";
+import Link from "next/link";
 
 const Footer = () => {
+  const config = getConfig();
+  const routes = get(config, "publicRuntimeConfig.routes", DEFAULT_ROUTES);
   return (
     <div className={styles.footer}>
       <div className={styles.footer__container}>
         <div className={styles.footer__site}>
           <span className={styles.footer__quote}>Delighting your home</span>
           <ul>
-            <li>Về chúng tôi</li>
-            <li>Các dự án</li>
-            <li>Bộ sưu tập</li>
-            <li>Sản phẩm</li>
+            {
+              routes.map(route => (
+                <li key={route.title}>
+                  <Link href={`/${route.slug ?? ""}`}>{route.title}</Link>
+                </li>
+              ))
+            }
           </ul>
           <p>
             <span className={styles.footer__brandName}>HALO lighting</span>{" "}
@@ -76,15 +85,14 @@ const Footer = () => {
             </span>
             <br />
             {getSetting("phone_number_sg")} <br />
-            14 Nguyễn Quý Đức, p. An Phú, TP. Thủ Đức <br />
+            {getSetting("show_room_sg")} <br />
             <br />
             <span className={styles.footer__info__company}>
               SHOWROOM - HANOI
             </span>
             <br />
             {getSetting("phone_number_hn")} <br />
-            The Manor Central Park - Số 11 - Block 14TM1 - Nguyễn Xiển, P. Đại
-            Kim, Q. Hoàng Mai, Hà Nội
+            {getSetting("show_room_hn")}
           </p>
           <ul>
             <li>Đăng ký bản tin mới</li>
