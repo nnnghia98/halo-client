@@ -11,8 +11,8 @@ const Images = ({thumbnail = null, sliders = []}) => (
     <div className={styles.images__slideshow}>
       {
         sliders.length > 0 && sliders.map(slide => (
-          <div className={styles.images__smImage}>
-            <Image key={slide.name} src={slide.thumbnail} width="200" height="200" alt={slide.name} />
+          <div key={slide.name} className={styles.images__smImage}>
+            <Image src={slide.thumbnail} width="200" height="200" alt={slide.name} />
           </div>
         ))
       }

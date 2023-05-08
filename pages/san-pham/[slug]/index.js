@@ -42,7 +42,7 @@ const ProductDetail = ({ category, products, product }) => {
   const renderProductDetailContent = () => (
     <>
       <HeadTitle title={product.title} />
-      <Breadcrumb paths={PRODUCT_DETAIL_PATHS} />
+      <Breadcrumb paths={product.breadcrumb} />
 
       <div className={styles.productDetail__content}>
         {width < WIDTH_BREAKPOINT ? (
