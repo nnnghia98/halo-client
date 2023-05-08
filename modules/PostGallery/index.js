@@ -55,7 +55,7 @@ const PostGallery = ({ items, categories }) => {
               <div className={styles.gallery__itemImg}>
                 <Image
                   src={item.thumbnail ?? defaultPostImg}
-                  alt={item.thumbnail_name ? item.thumbnail_name : 'post' }
+                  alt={item.thumbnail_name ? item.thumbnail_name : "post"}
                   layout="fill"
                 />
               </div>

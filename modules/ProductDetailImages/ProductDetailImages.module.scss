@@ -1,19 +1,31 @@
 .images {
   width: 100%;
-  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  img {
-    max-width: 85%;
-  }
-
-  &__slideshow {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
+  &__mainImage {
+    animation: fadeIn 5s;
   }
 
   &__smImage {
     max-width: 15%;
+    cursor: pointer;
+  }
+
+  &__slideshow {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
