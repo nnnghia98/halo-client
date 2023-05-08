@@ -56,17 +56,25 @@ const CollectionDetail = ({ item }) => {
       {renderBannerContent()}
 
       <div className={styles.collectionDetail__imgDetail}>
-        <div dangerouslySetInnerHTML={{ __html: item.content }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: item.video_banner_description }}
+        />
       </div>
 
-      <div className={styles.collectionDetail__storyCarousel}>
+      <div className={styles.collectionDetail__imgDetail}>
+        <div
+          dangerouslySetInnerHTML={{ __html: item.video_detail_description }}
+        />
+      </div>
+
+      {/* <div className={styles.collectionDetail__storyCarousel}>
         <ProjectDetailStory />
         <div
           className={styles.collectionDetail__storyCarousel__carouselWrapper}
         >
           <ProjectDetailCarousel />
         </div>
-      </div>
+      </div> */}
 
       <div className={styles.collectionDetail__imgCarousel}>
         <div className={styles.collectionDetail__imgCarousel__imageWrapper}>
