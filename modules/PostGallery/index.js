@@ -54,7 +54,13 @@ const PostGallery = ({ items, categories }) => {
         {posts.map((item) => (
           <Link key={item.id} href={`/${COLLECTION_PAGE.slug}/${item.slug}`}>
             <div className={styles.gallery__itemWrap}>
-              <Image src={item.thumbnail ?? project1} alt="project-1" />
+              <div className={styles.gallery__itemImg}>
+                <Image
+                  src={item.thumbnail ?? project1}
+                  alt="project-1"
+                  layout="fill"
+                />
+              </div>
               <div className={styles.gallery__itemName}>
                 {item.title.toUpperCase()}
               </div>

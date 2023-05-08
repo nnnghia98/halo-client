@@ -3,6 +3,13 @@
   margin-top: 76px;
   background-color: #f2f2f3;
 
+  &__bannerCarousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+  }
+
   &__imgDetail,
   &__storyCarousel,
   &__imgCarousel {
