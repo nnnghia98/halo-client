@@ -1,28 +1,21 @@
 import React from "react";
 import Image from "next/image";
-
-import thumb2 from "assets/img/thumb2.jpg";
-
+import defaultProductImg from "assets/img/default_product.png";
 import styles from "./ProductDetailImages.module.scss";
 
-const Images = () => (
+const Images = ({thumbnail = null, sliders = []}) => (
   <div className={styles.images}>
     <div className={styles.images__mainImage}>
-      <Image priority src={thumb2} alt="" />
+      <Image priority src={thumbnail ?? defaultProductImg} alt="" />
     </div>
     <div className={styles.images__slideshow}>
-      <div className={styles.images__smImage}>
-        <Image priority src={thumb2} alt="" />
-      </div>
-      <div className={styles.images__smImage}>
-        <Image priority src={thumb2} alt="" />
-      </div>
-      <div className={styles.images__smImage}>
-        <Image priority src={thumb2} alt="" />
-      </div>
-      <div className={styles.images__smImage}>
-        <Image priority src={thumb2} alt="" />
-      </div>
+      {
+        sliders.length > 0 && sliders.map(slide => (
+          <div className={styles.images__smImage}>
+            <Image key={slide.name} src={slide.thumbnail} width="200" height="200" alt={slide.name} />
+          </div>
+        ))
+      }
     </div>
   </div>
 );

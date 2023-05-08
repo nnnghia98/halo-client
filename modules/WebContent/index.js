@@ -5,7 +5,7 @@ import Description from "../ProductDetailDescription";
 
 const WebContent = ({ product }) => (
   <>
-    <Images />
+    <Images thumbnail={product.thumbnail} sliders={product.sliders} />
     <Description product={product} />
   </>
 );

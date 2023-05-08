@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {PATHS, PRODUCT_PAGE} from "utils/constants";
 import defaultProductImg from "assets/img/default_product.png";
 import styles from "./ProductList.module.scss";
 
-const ProductList = ({ categories, products }) => {
+const ProductList = ({categories, products}) => {
   const [isSelected, setIsSelected] = useState(0);
 
   const renderGroupFilterBar = () =>
@@ -13,7 +13,7 @@ const ProductList = ({ categories, products }) => {
       <Link
         href={{
           pathname: PATHS.PRODUCT_CATEGORY,
-          query: { slug: c.slug },
+          query: {slug: c.slug},
         }}
         key={c.id}
         className={
@@ -44,8 +44,8 @@ const ProductList = ({ categories, products }) => {
                 <Image
                   className={styles.productsList__itemImage}
                   priority
-                  src={defaultProductImg}
-                  alt={product.thumbnail_name ? product.thumbnail_name : 'Product image' }
+                  src={product.thumbnail ?? defaultProductImg}
+                  alt={product.thumbnail_name ?? 'Product image'}
                 />
                 <div className={styles.productList__itemName}>
                   {product.title}

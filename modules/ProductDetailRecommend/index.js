@@ -2,12 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Item } from "react-grid-carousel";
-
 import { HorizontalCarousel } from "components";
 import { useWindowDimensions } from "utils/window";
 import { PRODUCT_PAGE, WIDTH_BREAKPOINT } from "utils/constants";
-
-import thumb2 from "assets/img/thumb2.jpg";
+import defaultProductImg from "assets/img/default_product.png";
 import styles from "./ProductDetailRecommend.module.scss";
 
 const ProductRecommend = ({ relatedProducts }) => {
@@ -27,7 +25,7 @@ const ProductRecommend = ({ relatedProducts }) => {
           className={styles.productRecommend__imgWrapper}
         >
           <Image
-            src={product.thumbnail ?? thumb2}
+            src={product.thumbnail ?? defaultProductImg}
             width="250"
             height="250"
             style={{ cursor: "pointer" }}
