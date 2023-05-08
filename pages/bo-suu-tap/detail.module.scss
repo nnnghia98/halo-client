@@ -3,17 +3,23 @@
   margin-top: 76px;
   background-color: #f2f2f3;
 
-  &__bannerCarousel {
+  &__carouselWrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 25px 0;
   }
 
+  &__contentWrapper {
+    display: flex;
+    font-family: "Eleganto Sans";
+  }
+
   &__imgDetail,
   &__storyCarousel,
   &__imgCarousel {
     display: flex;
+    font-family: "Eleganto Sans";
   }
 
   &__imgDetail {
