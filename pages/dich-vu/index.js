@@ -6,17 +6,17 @@ import { getPostsByType } from "apis/post";
 import { getPageDetail } from "apis/page";
 import { getCategoriesByPageSlug } from "apis/category";
 
-const Service = ({ pageDetail }) => (
+const Service = ({ pageDetail, postsService }) => (
   <>
     <HeadTitle title={pageDetail.title} />
     <PostHeader title={pageDetail.title} description={pageDetail.description} />
-    <PostGallery items={[]} categories={[]} />
+    <PostGallery items={postsService} categories={[]} />
   </>
 );
 
 export const getServerSideProps = async () => {
   try {
-    const [pageDetail, postsCollection] = await Promise.all([
+    const [pageDetail, postsService] = await Promise.all([
       getPageDetail("service"),
       getPostsByType("service"),
     ]);
@@ -26,13 +26,13 @@ export const getServerSideProps = async () => {
     return {
       props: {
         pageDetail: pageDetail.data,
-        postsCollection: postsCollection.data,
+        postsService: postsService.data,
         categories: categories.data,
       },
     };
   } catch (e) {
     return {
-      props: { pageDetail: {}, postsCollection: [] },
+      props: { pageDetail: {}, postsService: [] },
     };
   }
 };

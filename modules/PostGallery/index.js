@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import { COLLECTION_PAGE } from "utils/constants";
-
-import project1 from "assets/img/project1.jpg";
+import defaultPostImg from "assets/img/default_post.png";
 import styles from "./PostGallery.module.scss";
 
 const PostGallery = ({ items, categories }) => {
@@ -56,8 +54,8 @@ const PostGallery = ({ items, categories }) => {
             <div className={styles.gallery__itemWrap}>
               <div className={styles.gallery__itemImg}>
                 <Image
-                  src={item.thumbnail ?? project1}
-                  alt="project-1"
+                  src={item.thumbnail ?? defaultPostImg}
+                  alt={item.thumbnail_name ? item.thumbnail_name : 'post' }
                   layout="fill"
                 />
               </div>

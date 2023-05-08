@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import {PATHS, PRODUCT_PAGE} from "utils/constants";
-
-import project1 from "assets/img/project1.jpg";
-
+import defaultProductImg from "assets/img/default_product.png";
 import styles from "./ProductList.module.scss";
 
 const ProductList = ({ categories, products }) => {
@@ -47,8 +44,8 @@ const ProductList = ({ categories, products }) => {
                 <Image
                   className={styles.productsList__itemImage}
                   priority
-                  src={project1}
-                  alt="project-1"
+                  src={defaultProductImg}
+                  alt={product.thumbnail_name ? product.thumbnail_name : 'Product image' }
                 />
                 <div className={styles.productList__itemName}>
                   {product.title}

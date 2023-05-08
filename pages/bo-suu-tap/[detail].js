@@ -20,7 +20,7 @@ import {getSpecificSliders} from "utils/sliders";
 import {SLIDER} from "utils/constants";
 
 import arrow from "assets/svg/arrow.svg";
-import thumb2 from "assets/img/thumb2.jpg";
+import defaultBanner from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
 
@@ -89,7 +89,7 @@ const CollectionDetail = ({item}) => {
 
       <div className={styles.collectionDetail__carousel}>
         <div className={styles.collectionDetail__carousel__image}>
-          <Image src={thumb2} alt="collection detail"/>
+          <Image src={defaultBanner} alt="collection detail"/>
         </div>
         <div className={styles.collectionDetail__carousel__navigation}>
           <div className={styles.collectionDetail__carousel__leftArrow}>
