@@ -13,11 +13,7 @@ import {
 
 import { getProductsByCategory, getProductBySlug } from "apis/product";
 import { getCategoryDetail } from "apis/category";
-import {
-  PRODUCT_DETAIL_PATHS,
-  PRODUCT_PAGE,
-  WIDTH_BREAKPOINT,
-} from "utils/constants";
+import { PRODUCT_PAGE, WIDTH_BREAKPOINT } from "utils/constants";
 import { useWindowDimensions } from "utils/window";
 
 import styles from "./index.module.scss";
@@ -29,6 +25,9 @@ const ProductDetail = ({ category, products, product }) => {
     <>
       <HeadTitle title={category.title} />
       <div className={styles.productDetail__content}>
+        <div className={styles.productDetail__filterButtonWrapper}>
+          <h4>FILTER +</h4>
+        </div>
         <div className={styles.productDetail__filterBarWrapper}>
           <ProductCategoryFilterBar category={category} />
         </div>

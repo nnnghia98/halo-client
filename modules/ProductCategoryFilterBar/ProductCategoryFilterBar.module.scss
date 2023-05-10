@@ -13,4 +13,10 @@
     border: 1px solid #bfbfbf;
     background-color: #ffffff;
   }
+
+  @media (max-width: 980px) {
+    h4 {
+      display: none;
+    }
+  }
 }

@@ -36,8 +36,6 @@ export const COLLECTION_PAGE = {
   slug: "bo-suu-tap",
 };
 
-export const PRODUCT_DETAIL_PATHS = ["SẢN PHẨM", "HALOLIGHTING", "ĐÈN CHÙM"];
-
 export const WIDTH_BREAKPOINT = 980;
 
 export const HEIGHT_BREAKPOINT = {

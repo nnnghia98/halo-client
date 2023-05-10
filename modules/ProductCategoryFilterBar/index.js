@@ -20,20 +20,25 @@ const ProductCategoryFilterBar = ({ category }) => {
 
       <div className={styles.filterSideBar__wrapper}>
         {productAttributes.length > 0 &&
-          productAttributes.filter(p => {
-            if (p.category_id && p.category_id !== category.id) {
-              return null;
-            }
-            return p;
-          }).filter(p => p).map((productAttribute) => (
-            <FilterPanel
-              key={productAttribute.name}
-              title={productAttribute.title}
-              type={productAttribute.slug}
-              category={category}
-              productAttributeValues={productAttribute.product_attribute_values}
-            />
-          ))}
+          productAttributes
+            .filter((p) => {
+              if (p.category_id && p.category_id !== category.id) {
+                return null;
+              }
+              return p;
+            })
+            .filter((p) => p)
+            .map((productAttribute) => (
+              <FilterPanel
+                key={productAttribute.name}
+                title={productAttribute.title}
+                type={productAttribute.slug}
+                category={category}
+                productAttributeValues={
+                  productAttribute.product_attribute_values
+                }
+              />
+            ))}
       </div>
     </div>
   );
