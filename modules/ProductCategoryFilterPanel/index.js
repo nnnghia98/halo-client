@@ -6,12 +6,10 @@ import cloneDeep from "lodash/cloneDeep";
 import { Checkbox } from "components";
 import { PRODUCT_PAGE } from "utils/constants";
 import styles from "./ProductCategoryFilterPanel.module.scss";
-import {getSetting} from "utils/common";
 
 const FilterPanel = (props) => {
   const router = useRouter();
   const query = React.useMemo(() => cloneDeep(router.query), []);
-  const defaultBrandSetting = getSetting('default_brand');
 
   const { title, type, isDefaultOpen, productAttributeValues, category } =
     props;
@@ -26,21 +24,6 @@ const FilterPanel = (props) => {
       });
     }
   }, [productAttributeValues, JSON.stringify(router.query)]);
-
-  useEffect(() => {
-    if (category) {
-      if (router.query.slug) {
-        delete router.query.slug;
-      }
-      if (category.name === 'brand' && isEmpty(router.query)) {
-        router.query.brand = defaultBrandSetting
-        router.replace(
-          `/${PRODUCT_PAGE.slug}/${category.slug}?` +
-          new URLSearchParams(router.query).toString()
-        );
-      }
-    }
-  }, [JSON.stringify(router.query)]);
 
   const triggerDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
