@@ -70,6 +70,8 @@
   }
 
   &__itemName {
+    position: absolute;
+    bottom: -33px;
     width: 100%;
     color: #000000;
     font-weight: 600;

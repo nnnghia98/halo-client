@@ -22,7 +22,7 @@ const Images = ({ thumbnail, sliders = [] }) => {
           src={currentImage ?? defaultProductImg}
           alt=""
           width="600"
-          height="600"
+          height="450"
         />
       </div>
       {sliders.length > 0 && (
@@ -33,8 +33,8 @@ const Images = ({ thumbnail, sliders = [] }) => {
                 <Image
                   src={slider.thumbnail}
                   style={{ cursor: "pointer" }}
-                  width="200"
-                  height="200"
+                  width="250"
+                  height="190"
                   alt={slider.name}
                   onClick={() => handleCarouselItemClick(slider.thumbnail)}
                 />
