@@ -37,7 +37,6 @@ const ProductDetail = ({ category, products, product }) => {
       </div>
     </>
   );
-
   const renderProductDetailContent = () => (
     <>
       <HeadTitle title={product.title} />

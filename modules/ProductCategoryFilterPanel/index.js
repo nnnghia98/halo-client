@@ -43,8 +43,8 @@ const FilterPanel = (props) => {
       query[props.type] = item.name;
     }
     const { category } = props;
-    if (query.category) {
-      delete query.category;
+    if (query.slug) {
+      delete query.slug;
     }
     router.replace(
       `/${PRODUCT_PAGE.slug}/${category.slug}?` +

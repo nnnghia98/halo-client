@@ -22,19 +22,16 @@ const Description = ({ product }) => (
     <div className={styles.description__additionalRequire}>
       VÌ SAO CHÚNG TÔI KHÁC BIỆT?
     </div>
-    <div className={styles.description__aboutUsDetail}>
-      {product.description}
-    </div>
     <div className={styles.description__break}>. . .</div>
     <div className={styles.description__sectionTitle}>MÔ TẢ SẢN PHẨM</div>
     <div className={styles.description__productDescription}>
-      <div dangerouslySetInnerHTML={{ __html: product.content }} />
+      <p>
+        {product.description}
+      </p>
     </div>
     <div className={styles.description__sectionTitle}>CHI TIẾT SẢN PHẨM</div>
     <ul className={styles.description__productDetail}>
-      <li>Chất liệu: </li>
-      <li>Màu sắc:</li>
-      <li>Kích thước (mm):</li>
+      <div dangerouslySetInnerHTML={{__html: product.content}}/>
     </ul>
   </div>
 );
