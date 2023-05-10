@@ -16,26 +16,18 @@
     justify-content: center;
   }
 
-  @media (max-width: 980px) {
-    &__list {
-      display: flex;
-      flex-wrap: wrap;
-      margin: auto 50px 30px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &__itemWrap {
-      flex: 1;
-      height: 100px;
-    }
-  }
-
   &__itemName,
   &__itemLocation {
     color: lightgray;
     margin-left: 10px;
     margin-bottom: 5px;
+  }
+
+  @media (max-width: 980px) {
+    &__list {
+      display: flex;
+      margin: auto 50px 30px;
+    }
   }
 }
 

@@ -84,7 +84,7 @@
     &__filterBar,
     &__brandFilterBar {
       flex-wrap: wrap;
-      gap: 0;
+      gap: 30px;
 
       &__item {
         flex-basis: 49%;
@@ -100,10 +100,6 @@
     &__brandFilterBar {
       flex-wrap: nowrap;
       padding: 0 10px;
-    }
-
-    &__list {
-      margin: auto 0 30px;
     }
 
     &__itemWrap {
