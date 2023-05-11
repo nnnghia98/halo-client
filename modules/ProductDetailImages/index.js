@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Item } from "react-grid-carousel";
 
@@ -8,11 +8,15 @@ import defaultProductImg from "assets/img/default_product.png";
 import styles from "./ProductDetailImages.module.scss";
 
 const Images = ({ thumbnail, sliders = [] }) => {
-  const [currentImage, setCurrentImage] = useState(thumbnail || null);
+  const [currentImage, setCurrentImage] = useState(thumbnail.path || null);
 
   const handleCarouselItemClick = (thumbnailUrl) => {
     setCurrentImage(thumbnailUrl);
   };
+
+  useEffect(() => {
+    sliders.push({ thumbnail: thumbnail.path, name: thumbnail.name });
+  }, []);
 
   return (
     <div className={styles.images}>
