@@ -16,7 +16,7 @@ const Images = ({ thumbnail, sliders = [] }) => {
   const joinedSlider = [
     {
       thumbnail: thumbnail.path ?? defaultProductImg,
-      name: thumbnail.name,
+      name: thumbnail.name ?? "img",
     },
     ...sliders,
   ];

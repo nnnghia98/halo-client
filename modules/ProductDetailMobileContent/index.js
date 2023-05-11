@@ -3,16 +3,17 @@ import ImageCarousel from "../ProductDetailImageCarousel";
 import styles from "./ProductDetailMobileContent.module.scss";
 import { useRouter } from "next/router";
 import { CONTACT_PAGE } from "utils/constants";
+import { getSetting } from "utils/common";
 
 const MobileContent = ({product}) => {
   const router = useRouter();
   return (
     <div className={styles.mobileContent}>
     <div className={styles.mobileContent__name}>
-      ĐÈN CHÙM HALOLIGHTING EUROPEAN 01
+      {product.title}
     </div>
     <div className={styles.mobileContent__productCode}>
-      MÃ SẢN PHẨM: HALOEU-01
+      MÃ SẢN PHẨM: {product.sku}
     </div>
     <div className={styles.mobileContent__imageCarousel}>
       <ImageCarousel />
@@ -34,15 +35,12 @@ const MobileContent = ({product}) => {
       VÌ SAO CHÚNG TÔI KHÁC BIỆT?
     </div>
     <div className={styles.mobileContent__aboutUsDetail}>
-      Chúng tôi sử dụng nguyên vật liệu cao cấp nhất và chú trọng từng chi tiết
-      nhằm đảm bảo độ hoàn thiện của sản phẩm, mang nghệ thuật trang trí đến
-      không gian
+      {getSetting('product_about_us')}
     </div>
     <div className={styles.mobileContent__break}>. . .</div>
     <div className={styles.mobileContent__sectionTitle}>MÔ TẢ SẢN PHẨM</div>
     <div className={styles.mobileContent__productDescription}>
-      Các tán lá trúc mang sắc xanh cho không gian cùng vẻ đẹp nghệ thuật từ tạo
-      hình con hươu, là nét đẹp thần thoại của nền văn hoá Châu Âu
+      {product.description}
     </div>
     <div className={styles.mobileContent__sectionTitle}>CHI TIẾT SẢN PHẨM</div>
     <ul className={styles.mobileContent__productDetail}>

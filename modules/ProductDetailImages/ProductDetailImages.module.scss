@@ -1,8 +1,14 @@
+@import "styles/mixin.scss";
+
 .images {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include desktop {
+    align-items: flex-start;
+    padding-left: 65px;
+  }
 
   &__mainImage {
     animation: fadeIn 5s;
