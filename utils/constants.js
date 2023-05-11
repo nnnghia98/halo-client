@@ -36,6 +36,11 @@ export const COLLECTION_PAGE = {
   slug: "bo-suu-tap",
 };
 
+export const CONTACT_PAGE = {
+  slug: "contact",
+    title: "LIÊN HỆ",
+}
+
 export const WIDTH_BREAKPOINT = 980;
 
 export const HEIGHT_BREAKPOINT = {

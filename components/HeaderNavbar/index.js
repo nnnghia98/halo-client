@@ -16,17 +16,19 @@ const HeaderNavbar = () => {
   const config = getConfig();
   const routes = get(config, "publicRuntimeConfig.routes", DEFAULT_ROUTES);
 
+  const triggerDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
   const menuItems = (
     <>
       {routes.map((route) => (
-        <li key={route.title}>
+        <li key={route.title} onClick={() => {
+          setIsDropdownOpen(false)
+        }}>
           <Link href={`/${route.slug ?? ""}`}>{route.title.toUpperCase()}</Link>
         </li>
       ))}
     </>
   );
-
-  const triggerDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
     <nav className={styles.navbar} id={styles.mainHeader}>

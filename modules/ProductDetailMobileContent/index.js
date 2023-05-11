@@ -1,11 +1,13 @@
 import React from "react";
-
 import ImageCarousel from "../ProductDetailImageCarousel";
-
 import styles from "./ProductDetailMobileContent.module.scss";
+import { useRouter } from "next/router";
+import { CONTACT_PAGE } from "utils/constants";
 
-const MobileContent = () => (
-  <div className={styles.mobileContent}>
+const MobileContent = ({product}) => {
+  const router = useRouter();
+  return (
+    <div className={styles.mobileContent}>
     <div className={styles.mobileContent__name}>
       ĐÈN CHÙM HALOLIGHTING EUROPEAN 01
     </div>
@@ -16,7 +18,9 @@ const MobileContent = () => (
       <ImageCarousel />
     </div>
     <div className={styles.mobileContent__buttonWrapper}>
-      <div className={styles.mobileContent__orderContactButton}>
+      <div onClick={() => {
+          router.push(`/${CONTACT_PAGE.slug}`)
+        }} className={styles.mobileContent__orderContactButton}>
         LIÊN HỆ ĐẶT HÀNG
       </div>
     </div>
@@ -42,11 +46,10 @@ const MobileContent = () => (
     </div>
     <div className={styles.mobileContent__sectionTitle}>CHI TIẾT SẢN PHẨM</div>
     <ul className={styles.mobileContent__productDetail}>
-      <li>Chất liệu: Pha lê cao cấp</li>
-      <li>Màu sắc: Champagne + Transparent </li>
-      <li>Kích thước (mm): L 1400 x W1400 x H900</li>
+      <div style={{maxWidth: "100%", overflow: "hidden"}} dangerouslySetInnerHTML={{__html: product.content}}/>
     </ul>
   </div>
-);
+  )
+};
 
 export default MobileContent;
