@@ -5,7 +5,10 @@ import Description from "../ProductDetailDescription";
 
 const WebContent = ({ product }) => (
   <>
-    <Images thumbnail={product.thumbnail} sliders={product.sliders} />
+    <Images
+      thumbnail={{ path: product.thumbnail, name: product.thumbnail_name }}
+      sliders={product.sliders}
+    />
     <Description product={product} />
   </>
 );
