@@ -11,7 +11,7 @@ import tiktok from "assets/svg/tiktok.svg";
 import styles from "./Footer.module.scss";
 import getConfig from "next/config";
 import get from "lodash/get";
-import {DEFAULT_ROUTES} from "utils/constants";
+import { DEFAULT_ROUTES } from "utils/constants";
 import Link from "next/link";
 
 const Footer = () => {
@@ -23,13 +23,11 @@ const Footer = () => {
         <div className={styles.footer__site}>
           <span className={styles.footer__quote}>Delighting your home</span>
           <ul>
-            {
-              routes.map(route => (
-                <li key={route.title}>
-                  <Link href={`/${route.slug ?? ""}`}>{route.title}</Link>
-                </li>
-              ))
-            }
+            {routes.map((route) => (
+              <li key={route.title}>
+                <Link href={`/${route.slug ?? ""}`}>{route.title}</Link>
+              </li>
+            ))}
           </ul>
           <p>
             <span className={styles.footer__brandName}>HALO lighting</span>{" "}
@@ -43,41 +41,41 @@ const Footer = () => {
           <div className={styles.footer__flexWrapper}>
             <span className={styles.footer__info__brandName}>
               HALO lighting
+              <div className={styles.footer__info__socialMedia}>
+                <div className={styles.footer__info__socialMedia__item}>
+                  <Image
+                    src={facebook}
+                    alt="facebookIcon"
+                    width="25px"
+                    height="25px"
+                  />
+                </div>
+                <div className={styles.footer__info__socialMedia__item}>
+                  <Image
+                    src={tiktok}
+                    alt="tiktokIcon"
+                    width="25px"
+                    height="25px"
+                  />
+                </div>
+                <div className={styles.footer__info__socialMedia__item}>
+                  <Image
+                    src={youtube}
+                    alt="youtubeIcon"
+                    width="25px"
+                    height="25px"
+                  />
+                </div>
+                <div className={styles.footer__info__socialMedia__item}>
+                  <Image
+                    src={instagram}
+                    alt="instagramIcon"
+                    width="25px"
+                    height="25px"
+                  />
+                </div>
+              </div>
             </span>
-            <div className={styles.footer__info__socialMedia}>
-              <div className={styles.footer__info__socialMedia__item}>
-                <Image
-                  src={facebook}
-                  alt="facebookIcon"
-                  width="25px"
-                  height="25px"
-                />
-              </div>
-              <div className={styles.footer__info__socialMedia__item}>
-                <Image
-                  src={tiktok}
-                  alt="tiktokIcon"
-                  width="35px"
-                  height="35px"
-                />
-              </div>
-              <div className={styles.footer__info__socialMedia__item}>
-                <Image
-                  src={youtube}
-                  alt="youtubeIcon"
-                  width="25px"
-                  height="25px"
-                />
-              </div>
-              <div className={styles.footer__info__socialMedia__item}>
-                <Image
-                  src={instagram}
-                  alt="instagramIcon"
-                  width="25px"
-                  height="25px"
-                />
-              </div>
-            </div>
           </div>
           <p>
             <span className={styles.footer__info__company}>
