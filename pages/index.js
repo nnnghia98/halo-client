@@ -10,19 +10,23 @@ import {
 import styles from "./index.module.scss";
 import {getPageDetail} from "apis/page";
 import {getPostsByType} from "apis/post";
+import get from "lodash/get";
 
-const Home = ({homePage, postsCollection}) => (
-  <div className={styles.home}>
-    <HeadTitle title={homePage.title} />
-    <VideoPlayer src={homePage.video.path} />
-    <AboutUs />
-    <BespokeProjects />
-    <ResidentalCollections />
-    <SpecialProducts />
-    <Projects postsCollection={postsCollection} />
-    <Collaborators />
-  </div>
-);
+const Home = ({homePage, postsCollection}) => {
+  const videoPath = get(homePage, "video.path");
+  return (
+    <div className={styles.home}>
+      <HeadTitle title={homePage.title} />
+      <VideoPlayer src={videoPath} />
+      <AboutUs />
+      <BespokeProjects />
+      <ResidentalCollections />
+      <SpecialProducts />
+      <Projects postsCollection={postsCollection} />
+      <Collaborators />
+    </div>
+  )
+};
 
 export const getServerSideProps = async () => {
   try {

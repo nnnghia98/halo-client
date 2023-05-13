@@ -5,7 +5,7 @@ import WebContent from "../WebContent";
 import { ProductRecommend, Subscribe, MobileContent } from "modules";
 
 import styles from "./Projects.module.scss";
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 import { useRouter } from "next/router";
 import { COLLECTION_PAGE } from "utils/constants";
 
