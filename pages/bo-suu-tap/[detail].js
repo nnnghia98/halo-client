@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Item } from "react-grid-carousel";
 import isEmpty from "lodash/isEmpty";
 
-import { VideoPlayer, HorizontalCarousel } from "components";
+import { VideoPlayer, HorizontalCarousel, HeadTitle } from "components";
 import {
   ProjectDetailBanner,
   ProjectDetailImage,
@@ -24,11 +24,11 @@ import defaultBanner from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
 
-const CollectionDetail = ({ item }) => {
+const CollectionDetail = ({ post }) => {
   const { width } = useWindowDimensions();
 
   const renderBannerContent = () => {
-    if (isEmpty(item.video_banner_url)) {
+    if (isEmpty(post.video_banner_url)) {
       return (
         <div className={styles.collectionDetail__carouselWrapper}>
           <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
@@ -47,29 +47,31 @@ const CollectionDetail = ({ item }) => {
       );
     }
 
-    return <VideoPlayer src={item.video_banner_url} />;
+    return <VideoPlayer src={post.video_banner_path} />;
   };
 
-  const getSliders = (group) => getSpecificSliders(item.sliders, group);
+  const getSliders = (group) => getSpecificSliders(post.sliders, group);
 
   return (
-    <div className={styles.collectionDetail}>
-      <ProjectDetailBanner title={item.title} location={item.description} />
-      {renderBannerContent()}
+    <>
+      <HeadTitle title={post.title} /> 
+      <div className={styles.collectionDetail}>
+        <ProjectDetailBanner title={post.title} location={post.description} />
+        {renderBannerContent()}
 
-      <div className={styles.collectionDetail__contentWrapper}>
-        <div
-          dangerouslySetInnerHTML={{ __html: item.video_banner_description }}
-        />
-      </div>
+        <div className={styles.collectionDetail__contentWrapper}>
+          <div
+            dangerouslySetInnerHTML={{ __html: post.video_banner_description }}
+          />
+        </div>
 
-      <div className={styles.collectionDetail__contentWrapper}>
-        <div
-          dangerouslySetInnerHTML={{ __html: item.video_detail_description }}
-        />
-      </div>
+        <div className={styles.collectionDetail__contentWrapper}>
+          <div
+            dangerouslySetInnerHTML={{ __html: post.video_detail_description }}
+          />
+        </div>
 
-      {/* <div className={styles.collectionDetail__storyCarousel}>
+        {/* <div className={styles.collectionDetail__storyCarousel}>
         <ProjectDetailStory />
         <div
           className={styles.collectionDetail__storyCarousel__carouselWrapper}
@@ -78,34 +80,35 @@ const CollectionDetail = ({ item }) => {
         </div>
       </div> */}
 
-      <div className={styles.collectionDetail__imgCarousel}>
-        <div className={styles.collectionDetail__imgCarousel__imageWrapper}>
-          <ProjectDetailImage />
+        <div className={styles.collectionDetail__imgCarousel}>
+          <div className={styles.collectionDetail__imgCarousel__imageWrapper}>
+            <ProjectDetailImage />
+          </div>
+          <div className={styles.collectionDetail__imgCarousel__carouselWrapper}>
+            <ProjectDetailCarousel />
+          </div>
         </div>
-        <div className={styles.collectionDetail__imgCarousel__carouselWrapper}>
-          <ProjectDetailCarousel />
+
+        <div className={styles.collectionDetail__carouselWrapper}>
+          <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
+            {getSliders(SLIDER.BOTTOM_SLIDER).map((slider) => (
+              <Item key={slider.id}>
+                <Image
+                  src={slider.thumbnail}
+                  alt={slider.name}
+                  width="500"
+                  height="700"
+                />
+              </Item>
+            ))}
+          </HorizontalCarousel>
+        </div>
+
+        <div className={styles.collectionDetail__contact}>
+          <ProjectDetailContact />
         </div>
       </div>
-
-      <div className={styles.collectionDetail__carouselWrapper}>
-        <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
-          {getSliders(SLIDER.BOTTOM_SLIDER).map((slider) => (
-            <Item key={slider.id}>
-              <Image
-                src={slider.thumbnail}
-                alt={slider.name}
-                width="500"
-                height="700"
-              />
-            </Item>
-          ))}
-        </HorizontalCarousel>
-      </div>
-
-      <div className={styles.collectionDetail__contact}>
-        <ProjectDetailContact />
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -116,9 +119,9 @@ export const getServerSideProps = async ({ params }) => {
     const res = await getPostDetailBySlug(detail);
     const data = res.data;
 
-    return { props: { item: data } };
+    return { props: { post: data } };
   } catch (e) {
-    return { props: { item: {} } };
+    return { props: { post: {} } };
   }
 };
 

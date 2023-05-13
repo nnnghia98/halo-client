@@ -20,7 +20,7 @@ import thumb2 from "assets/img/thumb2.jpg";
 
 import styles from "./detail.module.scss";
 
-const CollectionDetail = () => {
+const ServiceDetail = () => {
   const { width } = useWindowDimensions();
 
   return (
@@ -76,4 +76,4 @@ const CollectionDetail = () => {
   );
 };
 
-export default CollectionDetail;
+export default ServiceDetail;

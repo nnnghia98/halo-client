@@ -1,3 +1,5 @@
+@import "/styles/mixin.scss";
+
 .videoPlayer {
   display: flex;
 
@@ -12,5 +14,13 @@
       aspect-ratio: 4/3;
       object-fit: cover;
     }
+  }
+}
+.videoIFrame {
+  @include desktop {
+    height: 100vh;
+  }
+  @include mobile {
+    height: 50vh;
   }
 }
