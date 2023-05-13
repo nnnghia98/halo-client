@@ -8,11 +8,11 @@ import {
   SpecialProducts,
 } from "modules";
 import styles from "./index.module.scss";
-import {getPageDetail} from "apis/page";
-import {getPostsByType} from "apis/post";
+import { getPageDetail } from "apis/page";
+import { getPostsByType } from "apis/post";
 import get from "lodash/get";
 
-const Home = ({homePage, postsCollection}) => {
+const Home = ({ homePage, postsCollection }) => {
   const videoPath = get(homePage, "video.path");
   return (
     <div className={styles.home}>
@@ -32,9 +32,9 @@ export const getServerSideProps = async () => {
   try {
     const [homePage, postsCollection] = await Promise.all([
       getPageDetail("home"),
-      getPostsByType("collection"),
+      getPostsByType("collection", { limit: 9 }),
     ])
-    
+
     return {
       props: {
         homePage: homePage.data,
