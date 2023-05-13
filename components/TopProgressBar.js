@@ -26,6 +26,7 @@ function stop() {
   state = "stop";
 
   clearTimeout(timer);
+  window.scrollTo(0,0)
   NProgress.done();
 }
 

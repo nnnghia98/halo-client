@@ -9,27 +9,33 @@ import {
 } from "modules";
 import styles from "./index.module.scss";
 import {getPageDetail} from "apis/page";
+import {getPostsByType} from "apis/post";
 
-const Home = ({ title }) => (
+const Home = ({homePage, postsCollection}) => (
   <div className={styles.home}>
-    <HeadTitle title={title} />
-    <VideoPlayer />
+    <HeadTitle title={homePage.title} />
+    <VideoPlayer src={homePage.video.path} />
     <AboutUs />
     <BespokeProjects />
     <ResidentalCollections />
     <SpecialProducts />
-    <Projects />
+    <Projects postsCollection={postsCollection} />
     <Collaborators />
   </div>
 );
 
 export const getServerSideProps = async () => {
   try {
-    const res = await getPageDetail("home");
-    const data = await res.data;
-
+    const [homePage, postsCollection] = await Promise.all([
+      getPageDetail("home"),
+      getPostsByType("collection"),
+    ])
+    
     return {
-      props: data,
+      props: {
+        homePage: homePage.data,
+        postsCollection: postsCollection.data,
+      },
     };
   } catch (e) {
     return {

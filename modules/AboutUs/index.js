@@ -1,11 +1,13 @@
 import React from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
-import { HEIGHT_BREAKPOINT } from "utils/constants";
+import { ABOUT_US_PAGE, HEIGHT_BREAKPOINT } from "utils/constants";
 
 import styles from "./AboutUs.module.scss";
+import { useRouter } from "next/router";
 
 const AboutUs = () => {
+  const router = useRouter();
   return (
     <div className={styles.aboutUs}>
       <div className={styles.aboutUs__wrapper}>
@@ -26,7 +28,9 @@ const AboutUs = () => {
                 CUNG CẤP CÁC SẢN PHẨM CHẤT LƯỢNG TOP ĐẦU THỊ TRƯỜNG
               </span>
             </h2>
-            <div>
+            <div onClick={() => {
+              router.push(`/${ABOUT_US_PAGE.slug}`)
+            }}>
               <span className={styles.aboutUs__moreBtn}>
                 TÌM HIỂU THÊM
                 <span className={styles.aboutUs__moreBtn__arrow} />

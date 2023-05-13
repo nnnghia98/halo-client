@@ -5,7 +5,7 @@ export const PATHS = {
 
 export const DEFAULT_ROUTES = [
   {
-    slug: "about-us",
+    slug: "ve-chung-toi",
     title: "VỀ CHÚNG TÔI",
   },
   {
@@ -37,8 +37,18 @@ export const COLLECTION_PAGE = {
 };
 
 export const CONTACT_PAGE = {
-  slug: "contact",
-    title: "LIÊN HỆ",
+  title: "LIÊN HỆ",
+  slug: "lien-he",
+}
+
+export const ABOUT_US_PAGE = {
+  title: "Về chúng tôi",
+  slug: "ve-chung-toi"
+}
+
+export const PROJECT_PAGE = {
+  title: "Các dự án",
+  slug: 'cac-du-an'
 }
 
 export const WIDTH_BREAKPOINT = 980;
