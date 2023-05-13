@@ -28,7 +28,8 @@ const CollectionDetail = ({ post }) => {
   const { width } = useWindowDimensions();
 
   const renderBannerContent = () => {
-    if (isEmpty(post.video_banner_url)) {
+    console.log(post.video_banner_path);
+    if (isEmpty(post.video_banner_path)) {
       return (
         <div className={styles.collectionDetail__carouselWrapper}>
           <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
@@ -47,14 +48,14 @@ const CollectionDetail = ({ post }) => {
       );
     }
 
-    return <VideoPlayer src={post.video_banner_path} />;
+    return <VideoPlayer src={`${post.video_banner_path}?autoplay=1`} />;
   };
 
   const getSliders = (group) => getSpecificSliders(post.sliders, group);
 
   return (
     <>
-      <HeadTitle title={post.title} /> 
+      <HeadTitle title={post.title} />
       <div className={styles.collectionDetail}>
         <ProjectDetailBanner title={post.title} location={post.description} />
         {renderBannerContent()}
@@ -84,7 +85,9 @@ const CollectionDetail = ({ post }) => {
           <div className={styles.collectionDetail__imgCarousel__imageWrapper}>
             <ProjectDetailImage />
           </div>
-          <div className={styles.collectionDetail__imgCarousel__carouselWrapper}>
+          <div
+            className={styles.collectionDetail__imgCarousel__carouselWrapper}
+          >
             <ProjectDetailCarousel />
           </div>
         </div>

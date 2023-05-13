@@ -17,9 +17,14 @@
   }
 }
 .videoIFrame {
+  iframe {
+    border: 0;
+  }
+
   @include desktop {
     height: 100vh;
   }
+
   @include mobile {
     height: 50vh;
   }

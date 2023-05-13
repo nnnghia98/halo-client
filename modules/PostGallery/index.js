@@ -5,7 +5,7 @@ import { COLLECTION_PAGE } from "utils/constants";
 import defaultPostImg from "assets/img/default_post.png";
 import styles from "./PostGallery.module.scss";
 
-const PostGallery = ({ items, categories }) => {
+const PostGallery = ({ items, categories = [] }) => {
   const [isSelected, setIsSelected] = useState(0);
   const [posts, setPosts] = useState(items);
 
