@@ -7,9 +7,10 @@ import isEmpty from "lodash/isEmpty";
 import { Breadcrumb } from "components";
 import WebContent from "../WebContent";
 import { ProductRecommend, Subscribe, MobileContent } from "modules";
-
-import styles from "./Projects.module.scss";
 import { PROJECT_PAGE, PRODUCT_PAGE, COLLECTION_PAGE } from "utils/constants";
+
+import defaultProductImg from "assets/img/default_product.png";
+import styles from "./Projects.module.scss";
 
 const Projects = ({ postsProject = [] }) => {
   const router = useRouter();
@@ -30,12 +31,12 @@ const Projects = ({ postsProject = [] }) => {
                 href={`/${COLLECTION_PAGE.slug}/${post.slug}`}
               >
                 <div className={styles.projects__itemWrap}>
-                  {/* <Image
-                  className={styles.productsList__itemImg}
-                  src={product.thumbnail ?? defaultProductImg}
-                  alt={product.thumbnail_name ?? "Product image"}
-                  layout="fill"
-                /> */}
+                  <Image
+                    className={styles.projects__itemImg}
+                    src={post.thumbnail ?? defaultProductImg}
+                    alt={post.thumbnail_name ?? "Projects image"}
+                    layout="fill"
+                  />
                   <div className={styles.projects__itemName}>{post.title}</div>
                   <div className={styles.projects__itemLocation}>
                     {post.description}

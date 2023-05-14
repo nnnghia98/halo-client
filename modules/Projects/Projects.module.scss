@@ -16,24 +16,35 @@
     flex-wrap: wrap;
     margin: auto 50px 30px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   &__itemWrap {
+    position: relative;
     font-family: "Eleganto Sans";
-    background-image: url("../../assets/img/project1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    flex: 1 30%;
-    max-width: 32%;
-    height: 300px;
-    margin: auto 10px 5px;
+    width: 420px;
+    aspect-ratio: 4/3;
+    flex: 0 0 30%;
+    margin: auto 10px 20px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
     flex-direction: column;
     cursor: pointer;
+
+    img {
+      transition: transform 0.4s;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__itemImg {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: 980px) {
