@@ -1,21 +1,24 @@
 import HeadTitle from "components/HeadTitle";
 import { ProjectHeader, ProjectGallery } from "modules";
 import { getPostsByType } from "apis/post";
+import { getPageDetail } from "apis/page";
 
-const Projects = ({postsProject}) => (
+const Projects = ({project, postsProject}) => (
   <>
-    <HeadTitle title="123" />
+    <HeadTitle title={project.title} />
     <ProjectHeader />
     <ProjectGallery postsProject={postsProject} />
   </>
 );
 
 export const getServerSideProps = async () => {
-  const [postsProject] = await Promise.all([
+  const [project, postsProject] = await Promise.all([
+    getPageDetail("project"),
     getPostsByType("project")
   ]);
   return {
     props: {
+      project: project.data,
       postsProject: postsProject.data,
     }
   }
