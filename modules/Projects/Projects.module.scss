@@ -47,6 +47,23 @@
     height: 100%;
   }
 
+  &__itemName,
+  &__itemLocation {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  &__itemName {
+    bottom: 20px;
+  }
+
+  &__itemLocation {
+    bottom: 0px;
+  }
+
   @media (max-width: 980px) {
     &__list {
       display: flex;
@@ -59,13 +76,6 @@
     &__itemWrap {
       flex: 1 90%;
     }
-  }
-
-  &__itemName,
-  &__itemLocation {
-    color: #fff;
-    margin-left: 10px;
-    margin-bottom: 5px;
   }
 
   &__more {

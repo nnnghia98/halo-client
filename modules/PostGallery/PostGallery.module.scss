@@ -32,10 +32,8 @@
   &__itemWrap {
     position: relative;
     font-family: "Eleganto Sans";
-    width: 100%;
     max-width: 830px;
-    min-width: 468px;
-    height: 350px;
+    aspect-ratio: 4/3;
     flex: 0 0 43%;
     margin: auto 10px 20px;
     display: flex;
