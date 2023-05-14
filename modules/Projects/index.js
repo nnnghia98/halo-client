@@ -7,19 +7,19 @@ import { ProductRecommend, Subscribe, MobileContent } from "modules";
 import styles from "./Projects.module.scss";
 import isEmpty from "lodash/isEmpty";
 import { useRouter } from "next/router";
-import { COLLECTION_PAGE } from "utils/constants";
+import { PROJECT_PAGE } from "utils/constants";
 
-const Projects = ({ postsCollection = [] }) => {
+const Projects = ({ postsProject = [] }) => {
   const router = useRouter();
   const handleNavigate = (post) => {
-    router.push(`/${COLLECTION_PAGE.slug}/${post.slug}`)
+    router.push(`/${PROJECT_PAGE.slug}/${post.slug}`)
   }
   return (
     <div className={styles.projects}>
       <div className={styles.projects__container}>
         <h3>DỰ ÁN THƯƠNG HIỆU</h3>
         {
-          !isEmpty(postsCollection) && postsCollection.map(post => (
+          !isEmpty(postsProject) && postsProject.map(post => (
             <div key={post.title} className={styles.projects__itemWrap} onClick={() => handleNavigate(post)}>
               <div className={styles.projects__itemName}>{post.title}</div>
             </div>

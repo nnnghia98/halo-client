@@ -2,7 +2,7 @@ import { VideoPlayer, HeadTitle } from "components";
 import {
   AboutUs,
   BespokeProjects,
-  ResidentalCollections,
+  ResidentialCollections,
   Projects,
   Collaborators,
   SpecialProducts,
@@ -12,7 +12,7 @@ import { getPageDetail } from "apis/page";
 import { getPostsByType } from "apis/post";
 import get from "lodash/get";
 
-const Home = ({ homePage, postsCollection }) => {
+const Home = ({ homePage, postsProject }) => {
   const videoPath = get(homePage, "video.path");
   return (
     <div className={styles.home}>
@@ -20,9 +20,9 @@ const Home = ({ homePage, postsCollection }) => {
       <VideoPlayer src={videoPath} />
       <AboutUs />
       <BespokeProjects />
-      <ResidentalCollections />
+      <ResidentialCollections />
       <SpecialProducts />
-      <Projects postsCollection={postsCollection} />
+      <Projects postsProject={postsProject} />
       <Collaborators />
     </div>
   )
@@ -30,15 +30,15 @@ const Home = ({ homePage, postsCollection }) => {
 
 export const getServerSideProps = async () => {
   try {
-    const [homePage, postsCollection] = await Promise.all([
+    const [homePage, postsProject] = await Promise.all([
       getPageDetail("home"),
-      getPostsByType("collection", { limit: 9 }),
+      getPostsByType("project", { limit: 9 }),
     ])
 
     return {
       props: {
         homePage: homePage.data,
-        postsCollection: postsCollection.data,
+        postsProject: postsProject.data,
       },
     };
   } catch (e) {

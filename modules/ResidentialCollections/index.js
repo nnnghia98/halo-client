@@ -6,7 +6,7 @@ import { COLLECTION_PAGE, HEIGHT_BREAKPOINT } from "utils/constants";
 import styles from "./ResidentalCollections.module.scss";
 import { useRouter } from "next/router";
 
-const ResidentalCollections = () => {
+const ResidentialCollections = () => {
   const router = useRouter();
   return (
     <div className={styles.residentalCollections}>
@@ -37,4 +37,4 @@ const ResidentalCollections = () => {
   )
 };
 
-export default ResidentalCollections;
+export default ResidentialCollections;

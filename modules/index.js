@@ -1,6 +1,6 @@
 import AboutUs from "./AboutUs";
 import BespokeProjects from "./BespokeProjects";
-import ResidentalCollections from "./ResidentalCollections";
+import ResidentialCollections from "./ResidentialCollections";
 import Projects from "./Projects";
 import Collaborators from "./Collaborators";
 import SpecialProducts from "./SpecialProducts";
@@ -29,7 +29,7 @@ import ProductCategoryFilterBar from "./ProductCategoryFilterBar";
 export {
   AboutUs,
   BespokeProjects,
-  ResidentalCollections,
+  ResidentialCollections,
   Projects,
   Collaborators,
   SpecialProducts,
