@@ -9,7 +9,7 @@ import WebContent from "../WebContent";
 import { ProductRecommend, Subscribe, MobileContent } from "modules";
 
 import styles from "./Projects.module.scss";
-import { PROJECT_PAGE, PRODUCT_PAGE } from "utils/constants";
+import { PROJECT_PAGE, PRODUCT_PAGE, COLLECTION_PAGE } from "utils/constants";
 
 const Projects = ({ postsProject = [] }) => {
   const router = useRouter();
@@ -25,7 +25,10 @@ const Projects = ({ postsProject = [] }) => {
         {!isEmpty(postsProject) && (
           <div className={styles.projects__list}>
             {postsProject.map((post) => (
-              <Link key={post.slug} href={`/${PROJECT_PAGE.slug}/${post.slug}`}>
+              <Link
+                key={post.slug}
+                href={`/${COLLECTION_PAGE.slug}/${post.slug}`}
+              >
                 <div className={styles.projects__itemWrap}>
                   {/* <Image
                   className={styles.productsList__itemImg}
