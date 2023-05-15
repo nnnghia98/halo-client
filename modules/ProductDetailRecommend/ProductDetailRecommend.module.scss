@@ -9,6 +9,8 @@
 
   h2 {
     font-family: "Eleganto Sans";
+    font-weight: 600;
+    font-size: 30px;
   }
 
   &__slideshow {
@@ -37,5 +39,10 @@
     &__imgWrapper {
       width: 100%;
     }
+  }
+  &__relatedProductName {
+    cursor: pointer;
+    font-family: "Eleganto Sans";
+    font-weight: 500;
   }
 }

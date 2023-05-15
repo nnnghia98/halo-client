@@ -34,7 +34,7 @@ const ProductRecommend = ({ relatedProducts }) => {
             }}
           />
           <p
-            style={{ cursor: "pointer" }}
+            className={styles.productRecommend__relatedProductName}
             onClick={() => {
               router.push(`/${PRODUCT_PAGE.slug}/${product.slug}`);
             }}
