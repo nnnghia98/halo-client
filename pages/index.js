@@ -1,4 +1,4 @@
-import { VideoPlayer, HeadTitle } from "components";
+import { HeadTitle } from "components";
 import {
   AboutUs,
   BespokeProjects,
@@ -11,13 +11,14 @@ import styles from "./index.module.scss";
 import { getPageDetail } from "apis/page";
 import { getPostsByType } from "apis/post";
 import get from "lodash/get";
+import PageVideo from "components/PageVideo";
 
 const Home = ({ homePage, postsProject }) => {
   const videoPath = get(homePage, "video.path");
   return (
     <div className={styles.home}>
       <HeadTitle title={homePage.title} />
-      <VideoPlayer src={videoPath} />
+      <PageVideo src={videoPath} />
       <AboutUs />
       <BespokeProjects />
       <ResidentialCollections />
