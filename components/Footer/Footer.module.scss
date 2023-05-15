@@ -26,10 +26,7 @@
       font-size: 20px;
       padding-right: 6%;
       margin: 0;
-
-      span {
-        font-weight: 400;
-      }
+      font-weight: 400;
     }
   }
 
@@ -55,7 +52,6 @@
 
     &__brandName {
       text-align: left;
-      // flex: 1 1 35%;
       font-size: 45px;
       font-weight: 500;
     }
@@ -101,7 +97,7 @@
     align-self: flex-start;
     margin-top: 35px;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   @media (max-width: 980px) {
@@ -126,7 +122,6 @@
       ul {
         li {
           font-size: 16px;
-          font-weight: 400;
         }
       }
     }
@@ -152,7 +147,6 @@
         li {
           font-size: 13px;
           line-height: 1.75rem;
-          font-weight: 400;
         }
       }
 
