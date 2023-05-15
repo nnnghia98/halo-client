@@ -6,12 +6,13 @@ import arrow from "assets/svg/arrow.svg";
 
 import styles from "./ProjectDetailBanner.module.scss";
 
-const Banner = ({ title, location }) => (
+const Banner = ({ banner, title, location }) => (
   <div className={styles.banner}>
     <Image
       className={styles.banner__image}
-      src={videoPlayerThumb}
+      src={banner ?? videoPlayerThumb}
       alt="banner"
+      layout="fill"
     />
     <div className={styles.banner__detail}>
       <div className={styles.banner__name}>{title}</div>

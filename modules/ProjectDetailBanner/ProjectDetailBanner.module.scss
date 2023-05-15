@@ -3,6 +3,8 @@
   display: flex;
   position: relative;
   color: #ffffff;
+  width: 100%;
+  aspect-ratio: 16/9;
 
   &__image {
     width: 100%;
