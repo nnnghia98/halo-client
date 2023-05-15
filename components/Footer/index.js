@@ -79,18 +79,18 @@ const Footer = () => {
           </div>
           <p>
             <span className={styles.footer__info__company}>
-              FLAGSHIP SHOWROOM - TPHCM
+              {getSetting("show_room_sg")}
             </span>
             <br />
             {getSetting("phone_number_sg")} <br />
-            {getSetting("show_room_sg")} <br />
+            {getSetting("show_room_sg_address")} <br />
             <br />
             <span className={styles.footer__info__company}>
-              SHOWROOM - HANOI
+              {getSetting("show_room_hn")}
             </span>
             <br />
             {getSetting("phone_number_hn")} <br />
-            {getSetting("show_room_hn")}
+            {getSetting("show_room_hn_address")}
           </p>
           <ul>
             <li>Đăng ký bản tin mới</li>
