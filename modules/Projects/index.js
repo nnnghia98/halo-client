@@ -7,17 +7,13 @@ import isEmpty from "lodash/isEmpty";
 import { Breadcrumb } from "components";
 import WebContent from "../WebContent";
 import { ProductRecommend, Subscribe, MobileContent } from "modules";
-import { PROJECT_PAGE, PRODUCT_PAGE, COLLECTION_PAGE } from "utils/constants";
+import { PROJECT_PAGE } from "utils/constants";
 
 import defaultProductImg from "assets/img/default_product.png";
 import styles from "./Projects.module.scss";
 
 const Projects = ({ postsProject = [] }) => {
   const router = useRouter();
-
-  const handleNavigate = (post) => {
-    router.push(`/${PROJECT_PAGE.slug}/${post.slug}`);
-  };
 
   return (
     <div className={styles.projects}>
@@ -28,7 +24,7 @@ const Projects = ({ postsProject = [] }) => {
             {postsProject.map((post) => (
               <Link
                 key={post.slug}
-                href={`/${COLLECTION_PAGE.slug}/${post.slug}`}
+                href={`/${PROJECT_PAGE.slug}/${post.slug}`}
               >
                 <div className={styles.projects__itemWrap}>
                   <Image
