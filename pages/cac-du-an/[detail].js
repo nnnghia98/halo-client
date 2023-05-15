@@ -4,21 +4,29 @@ import { Item } from "react-grid-carousel";
 import isEmpty from "lodash/isEmpty";
 
 import { VideoPlayer, HorizontalCarousel, HeadTitle } from "components";
-import { ProjectDetailBanner, ProjectDetailContact } from "modules";
+import {
+  ProjectDetailBanner,
+  ProjectDetailImage,
+  ProjectDetailCarousel,
+  ProjectDetailContact,
+} from "modules";
 
 import { getPostDetailBySlug } from "apis/post";
+import { useWindowDimensions } from "utils/window";
 import { getSpecificSliders } from "utils/sliders";
 import { SLIDER } from "utils/constants";
 
 import styles from "./detail.module.scss";
 
-const CollectionDetail = ({ post }) => {
-  const renderVideoOrSliderContent = (videoPath, sliderType) => {
-    if (isEmpty(videoPath)) {
+const ProjectDetail = ({ post }) => {
+  const { width } = useWindowDimensions();
+
+  const renderBannerContent = () => {
+    if (isEmpty(post.video_banner_path)) {
       return (
         <div className={styles.collectionDetail__carouselWrapper}>
           <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
-            {getSliders(sliderType).map((slider) => (
+            {getSliders(SLIDER.SPECIAL_SLIDER).map((slider) => (
               <Item key={slider.id}>
                 <Image
                   src={slider.thumbnail}
@@ -33,7 +41,7 @@ const CollectionDetail = ({ post }) => {
       );
     }
 
-    return <VideoPlayer src={`${videoPath}?autoplay=1`} />;
+    return <VideoPlayer src={`${post.video_banner_path}?autoplay=1`} />;
   };
 
   const getSliders = (group) => getSpecificSliders(post.sliders, group);
@@ -42,16 +50,8 @@ const CollectionDetail = ({ post }) => {
     <>
       <HeadTitle title={post.title} />
       <div className={styles.collectionDetail}>
-        <ProjectDetailBanner
-          banner={post.thumbnail}
-          title={post.title}
-          location={post.description}
-        />
-
-        {renderVideoOrSliderContent(
-          post.video_banner_path,
-          SLIDER.SPECIAL_SLIDER
-        )}
+        <ProjectDetailBanner title={post.title} location={post.description} />
+        {renderBannerContent()}
 
         <div className={styles.collectionDetail__contentWrapper}>
           <div
@@ -65,10 +65,20 @@ const CollectionDetail = ({ post }) => {
           />
         </div>
 
-        {renderVideoOrSliderContent(
-          post.video_detail_path,
-          SLIDER.CONTENT_SLIDER
-        )}
+        <div className={styles.collectionDetail__carouselWrapper}>
+          <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
+            {getSliders(SLIDER.CONTENT_SLIDER).map((slider) => (
+              <Item key={slider.id}>
+                <Image
+                  src={slider.thumbnail}
+                  alt={slider.name}
+                  width="500"
+                  height="700"
+                />
+              </Item>
+            ))}
+          </HorizontalCarousel>
+        </div>
 
         <div className={styles.collectionDetail__carouselWrapper}>
           <HorizontalCarousel cols={2} rows={1} loop autoplay={3000} gap={20}>
@@ -106,4 +116,4 @@ export const getServerSideProps = async ({ params }) => {
   }
 };
 
-export default CollectionDetail;
+export default ProjectDetail;
