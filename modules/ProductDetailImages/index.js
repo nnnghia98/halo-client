@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Item } from "react-grid-carousel";
 import isEmpty from "lodash/isEmpty";
@@ -24,6 +24,10 @@ const Images = ({ thumbnail, sliders = [] }) => {
   const handleCarouselItemClick = (thumbnailUrl) => {
     setCurrentImage(thumbnailUrl);
   };
+
+  useEffect(() => {
+    setCurrentImage(thumbnail.path ?? defaultProductImg);
+  }, [thumbnail]);
 
   return (
     <div className={styles.images}>
