@@ -8,7 +8,7 @@ import { getMainCategories } from "apis/category";
 const Products = ({ page, categories, products = [] }) => (
   <>
     <HeadTitle title={page.title} />
-    <ProductHeader header={page.title} />
+    <ProductHeader title={page.title} description={page.description} />
     <ProductList categories={categories} products={products} />
   </>
 );

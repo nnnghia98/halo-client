@@ -1,16 +1,18 @@
 import React from "react";
+import isEmpty from "lodash/isEmpty";
 
 import styles from "./ProductHeader.module.scss";
 
-const ProductHeader = ({ header }) => (
+const ProductHeader = ({ title, description }) => (
   <div className={styles.productHeader}>
     <div className={styles.productHeader__container}>
       <div className={styles.productHeader__paragraphWrapper}>
-        <h1>{header}</h1>
-        <p>
-          “<br /> Chúng tôi luôn chú trọng giá trị và chất lượng sản phẩm, mang
-          đến trải nghiệm tốt nhất đến quý khách hàng. <br />”
-        </p>
+        <h1>{title}</h1>
+        {!isEmpty(description) && (
+          <p>
+            “<br /> {description} <br />”
+          </p>
+        )}
       </div>
     </div>
   </div>
