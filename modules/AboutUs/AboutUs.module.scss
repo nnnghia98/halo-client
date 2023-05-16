@@ -1,4 +1,5 @@
 @import "styles/mixin.scss";
+
 .aboutUs {
   width: 100%;
   height: 700px;
@@ -109,7 +110,7 @@
 
   @media (max-width: 980px) {
     &__container {
-      padding: 3% 7%;
+      padding: 85px 7% 3%;
       width: 100%;
       margin: 0;
     }
@@ -137,6 +138,16 @@
         filter: invert(32%) sepia(7%) saturate(24%) hue-rotate(316deg)
           brightness(92%) contrast(82%);
       }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .aboutUs {
+    height: 600px;
+
+    &__wrapper {
+      align-items: unset;
     }
   }
 }
