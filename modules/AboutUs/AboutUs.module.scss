@@ -49,6 +49,7 @@
 
   &__brandName {
     font-weight: 500;
+    color: #000000;
   }
 
   &__brandBusiness {
@@ -60,6 +61,7 @@
     cursor: pointer;
     display: flex;
     transition: all 300ms ease 0ms;
+    color: #000000;
 
     &__arrow {
       content: "";
