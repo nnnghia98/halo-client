@@ -18,7 +18,7 @@ const PageVideo = ({ src }) => (
         />
       </div>
     ) : (
-      <video style={{width: "100%"}} autoPlay muted loop playsinline>
+      <video style={{width: "100%"}} controls autoplay loop muted playsinline>
         <source src={src} type="video/mp4" />
       </video>
     )}
