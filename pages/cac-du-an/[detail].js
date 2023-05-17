@@ -61,6 +61,7 @@ const ProjectDetail = ({ post }) => {
 
         <div className={styles.collectionDetail__contentWrapper}>
           <div
+            className={styles.collectionDetail__content}
             dangerouslySetInnerHTML={{ __html: post.video_detail_description }}
           />
         </div>
